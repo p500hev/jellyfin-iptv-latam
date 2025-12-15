@@ -1,4 +1,5 @@
-name: Actualizacion_IPTV_LATAM
+name: Actualizacion_IPTV_LATAM_Exclusion
+
 on:
   schedule:
     - cron: '0 0 * * *' 
@@ -29,34 +30,42 @@ jobs:
           curl -s "https://iptv-org.github.io/iptv/index.m3u" > $INPUT_FILE
 
           # 2. CONFIGURAR FILTROS Y ENCABEZADO
-          echo "# Aplicando filtro de Inclusión por Grupo/Región (Más robusto)..."
+          echo "# Aplicando filtro de Exclusión Global (Paises + Grupos)..."
           echo "#EXTM3U" > $TEMP_FILTER_FILE
           
-          # GRUPOS REGIONALES QUE QUEREMOS MANTENER (Américas, donde están LATAM y US)
-          INCLUDE_REGIONS='North America|South America|Caribbean|Canada|United States'
-          
-          # GRUPOS QUE QUEREMOS EXCLUIR ESTRICTAMENTE (Religiosos, Compras, etc.)
+          # GRUPOS QUE QUEREMOS EXCLUIR ESTRICTAMENTE
           EXCLUDE_GROUPS='Religious|Shopping|Sales|Infomercial|Adult|Unknown|Geolocked|Arabic|Indian|Pakistani|Australian|Asian|Russian|Turkish|European|XX|News|Sports|VOD|Music'
           
-          # 3. FILTRAR y ESCRIBIR en Temporal (Doble Lógica de Región)
-          awk -v include_regions="$INCLUDE_REGIONS" -v exclude_groups="$EXCLUDE_GROUPS" '
+          # CÓDIGOS DE PAÍS NO-LATINOAMERICANOS A EXCLUIR (EL MUNDO ENTERO - LATAM)
+          # Esto bloquea US, CA, todos los países europeos, Asia, África, Oceanía.
+          EXCLUDE_COUNTRY_CODES='us|ca|es|de|fr|it|uk|ru|cn|jp|kr|th|ae|tv|il|pl|cz|hu|ro|in|pk|bg|al|gr|be|ch|se|no|dk|fi|ie|nl|za|au|nz|ir|eg|ng|ke|sa|tr|rs|ua|sk|hu|at|iq|in|my|sg|id|ph|vn|bd|np|lk|et|gh|tz|ug|ke|zw|zm|pt|gr|ie|is|cy|mt|lt|lv|ee|by|md|ba|hr|me|mk|dk|no|se|fi|is|li|lu|mc|ad|sm|va'
+
+
+          # 3. FILTRAR y ESCRIBIR en Temporal (Doble Lógica de Exclusión)
+          awk -v exclude_groups="$EXCLUDE_GROUPS" -v exclude_countries="$EXCLUDE_COUNTRY_CODES" '
             /#EXTINF/ {
                 header = $0;
                 i = 1; 
                 next;
             }
             /http/ && i == 1 {
-                # Criterio 1: EXCLUSIÓN por Grupo Específico (Bloquea ventas, religión, música, etc.)
+                # Criterio 1: EXCLUSIÓN por Grupo
                 if (header ~ "group-title=\"" exclude_groups) {
                     i = 0;
                     next;
                 }
                 
-                # Criterio 2: INCLUSIÓN por Región Geográfica (Solo si está en América)
-                if (header ~ "group-title=\"" include_regions) {
-                    print header;
-                    print $0;
+                # Criterio 2: EXCLUSIÓN por País No-Latino
+                # Si el encabezado contiene CUALQUIER código de país de la lista de exclusión (el mundo), se salta.
+                if (header ~ exclude_countries "@") {
+                    i = 0;
+                    next;
                 }
+                
+                # Criterio 3: INCLUSIÓN (Si pasó los dos filtros de exclusión, se asume que es LATAM y se imprime)
+                print header;
+                print $0;
+                
                 i = 0;
             }' "$INPUT_FILE" >> $TEMP_FILTER_FILE
 
@@ -73,6 +82,6 @@ jobs:
       - name: Subir solo el Archivo Final (latam.m3u)
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Actualización automática: Lista LATAM+US filtrada y limpia."
+          commit_message: "Actualización automática: Lista LATAM por exclusión global de países."
           files_to_add: latam.m3u
           file_pattern: 'latam.m3u'
