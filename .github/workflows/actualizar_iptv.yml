@@ -1,9 +1,11 @@
 name: Actualización Automática de Lista LATAM (Final)
 
-# Se ejecuta diariamente a las 04:00 AM UTC
+# 1. Definición de la Frecuencia
+# Esta acción se ejecutará automáticamente todos los días a las 04:00 AM UTC
 on:
   schedule:
     - cron: '0 4 * * *'
+  # Permite ejecutar el workflow manualmente desde la interfaz de GitHub
   workflow_dispatch:
 
 jobs:
@@ -12,6 +14,7 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        # Necesario para que el action pueda subir los cambios
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           
@@ -20,51 +23,45 @@ jobs:
         run: |
           curl -s "https://raw.githubusercontent.com/iptv-org/iptv/master/index/index.m3u" > lista_completa_original.m3u
 
-- name: Aplicar Filtros (Permitiendo IPs, US y conservando Grupos/EPG)
+      - name: Aplicar Filtros (Permitiendo IPs, US y conservando Grupos/EPG)
         run: |
           # ----------------------------------------------------------------------
-          # ¡Paso Crucial! Reemplaza 'nombre_de_tu_lista.m3u' con el nombre exacto 
-          # del archivo al que apunta tu Jellyfin (ej. 'latam.m3u').
-          DEST_FILE="[NOMBRE_DE_TU_LISTA_ACTUAL].m3u"
+          # Archivo de destino final (latam.m3u)
+          DEST_FILE="latam.m3u"
           # ----------------------------------------------------------------------
 
           # 1. Crear el encabezado M3U
           echo "#EXTM3U" > $DEST_FILE
           
-          # 2. Definir la lista de países/códigos a EXCLUIR (Europa y Asia, etc.)
-          # Incluye códigos como ES, DE, RU, CN, JP, KR, TH, AE, TV, etc.
-          BLOCK_CODES='es|de|fr|it|uk|ru|cn|jp|kr|th|ae|tv|il|pl|cz|hu|ro|in|pk'
+          # 2. Definir la lista de países/códigos a EXCLUIR (Europa, Asia, África, Oceanía)
+          # NOTA: Solo se filtran los códigos de país que aparecen en el tvg-id (ej: .es@)
+          # Los códigos latinos (mx, ar, cl, co, etc.) y US NO están en esta lista.
+          BLOCK_CODES='es|de|fr|it|uk|ru|cn|jp|kr|th|ae|tv|il|pl|cz|hu|ro|in|pk|bg|al|gr|be|ch|se|no|dk|fi|ie|nl|za|au|nz|ca|ir|eg|ng|ke|sa|tr|rs|ua|sk|hu'
 
-          # 3. Usar AWK para filtrar líneas de forma inteligente y escribir directamente al archivo final:
-          # (Este paso asegura la conservación de IPs, group-title y canales latinos de USA/LATAM)
+          # 3. Usar AWK para filtrar líneas de forma inteligente y escribir directamente.
           awk -v block_codes="$BLOCK_CODES" '
             /#EXTINF/ {
-                # Esta línea es la cabecera (incluye tvg-id y group-title)
                 header = $0;
                 i = 1; # Bandera para saber que la siguiente línea es la URL
                 next;
             }
             /http/ && i == 1 {
-                # Esta línea es la URL
                 url = $0;
                 
                 # Expresión regular que busca tvg-id de países prohibidos.
-                # Se utiliza el campo del tvg-id, si existe.
-                
-                # Se busca la lista de códigos de bloqueo dentro del header.
+                # Si el encabezado contiene un código de bloqueo seguido de "@" (ej: .es@), se ignora.
                 if (header ~ block_codes "@") {
-                    # Si el canal coincide con un código de bloqueo (ej. .es@), se ignora.
+                    # Código bloqueado encontrado, se ignora el par header/url
                 } else {
-                    # Si NO coincide con un código de bloqueo, se incluye.
-                    # Esto permite canales de LATAM (mx, ar, co, etc.) y USA (us).
+                    # No es un código bloqueado (LATAM o US), se imprime el par header/url
                     print header;
                     print url;
                 }
                 i = 0; # Resetear la bandera
             }' lista_completa_original.m3u >> $DEST_FILE
-
-      - name: Subir el Archivo Limpio (Sobrescribir)
+          
+      - name: Subir el Archivo Limpio (Sobrescribir latam.m3u)
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Actualización automática: Lista LATAM+US(Latino) filtrada."
-          files: latam.m3u # ¡Reemplaza también aquí!
+          commit_message: "Actualización automática: Lista LATAM+US(Latino) filtrada y limpia (Manteniendo Grupos)."
+          files: latam.m3u
