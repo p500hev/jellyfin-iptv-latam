@@ -1,43 +1,48 @@
 name: Actualización Automática de Lista LATAM (Final)
 
 # 1. Definición de la Frecuencia
+# Ejecutar diariamente a las 00:00 UTC (medianoche)
 on:
   schedule:
-    - cron: '0 0 * * *' # Ejecutar diariamente a las 00:00 UTC (medianoche)
+    - cron: '0 0 * * *' 
+  # Permite ejecución manual
   workflow_dispatch:
 
 jobs:
   filtrar_y_actualizar:
     runs-on: ubuntu-latest
     
-    # -----------------------------------------------------------
-    # SOLUCIÓN AL ERROR 403: Se añaden permisos de escritura
+    # 2. Permisos para que el bot pueda subir el archivo actualizado (SOLUCIONA ERROR 403)
     permissions:
       contents: write
-    # -----------------------------------------------------------
-
+      
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           
-      - name: Descargar Lista Completa de IPTV-ORG
+      - name: Descargar Lista Completa de IPTV-ORG (URL Corregida)
         run: |
+          # Usamos la URL principal y más estable de IPTV-ORG
           curl -s "https://iptv-org.github.io/iptv/index.m3u" > lista_completa_original.m3u
 
       - name: Aplicar Filtros (Permitiendo IPs, US y conservando Grupos/EPG)
         run: |
+          # ----------------------------------------------------------------------
           # Archivo de destino final
           DEST_FILE="latam.m3u"
+          INPUT_FILE="lista_completa_original.m3u"
+          # ----------------------------------------------------------------------
           
           # 1. Crear el encabezado M3U
           echo "#EXTM3U" > $DEST_FILE
           
-          # 2. Definir la lista de países/códigos a EXCLUIR (Europa, Asia, etc.)
+          # 2. Definir la lista de códigos de país a EXCLUIR (Bloqueo estricto de Europa, Asia, etc.)
+          # Los códigos latinos (mx, ar, co, etc.) y US NO están en esta lista.
           BLOCK_CODES='es|de|fr|it|uk|ru|cn|jp|kr|th|ae|tv|il|pl|cz|hu|ro|in|pk|bg|al|gr|be|ch|se|no|dk|fi|ie|nl|za|au|nz|ca|ir|eg|ng|ke|sa|tr|rs|ua|sk|hu'
 
-          # 3. Usar AWK para filtrar líneas de forma inteligente y escribir directamente.
+          # 3. Usar AWK para filtrar líneas de forma robusta
           awk -v block_codes="$BLOCK_CODES" '
             /#EXTINF/ {
                 header = $0;
@@ -45,18 +50,13 @@ jobs:
                 next;
             }
             /http/ && i == 1 {
-                url = $0;
-                
-                # Si el encabezado NO contiene un código de país bloqueado (ej: .es@)
-                if (header ~ block_codes "@") {
-                    # Código bloqueado encontrado, se ignora
-                } else {
-                    # No es un código bloqueado (LATAM o US), se imprime
+                # Usamos la lógica de exclusión: si el header NO contiene un código de país bloqueado, se imprime.
+                if (header !~ block_codes "@") {
                     print header;
-                    print url;
+                    print $0; # Imprimir la URL
                 }
-                i = 0; # Resetear la bandera
-            }' lista_completa_original.m3u >> $DEST_FILE
+                i = 0;
+            }' "$INPUT_FILE" >> $DEST_FILE
           
       - name: Subir el Archivo Limpio (Sobrescribir latam.m3u)
         uses: stefanzweifel/git-auto-commit-action@v5
