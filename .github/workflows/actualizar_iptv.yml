@@ -1,7 +1,7 @@
 name: Actualización Automática de Lista LATAM (Final)
 
 # 1. Definición de la Frecuencia
-# Ejecutar diariamente a las 00:00 UTC (medianoche)
+# Ejecutar diariamente a la medianoche (00:00 UTC)
 on:
   schedule:
     - cron: '0 0 * * *' 
@@ -12,7 +12,7 @@ jobs:
   filtrar_y_actualizar:
     runs-on: ubuntu-latest
     
-    # 2. Permisos para que el bot pueda subir el archivo actualizado (SOLUCIONA ERROR 403)
+    # SOLUCIÓN AL ERROR DE PERMISOS 403: Otorga permisos de escritura al bot
     permissions:
       contents: write
       
@@ -22,15 +22,14 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           
-      - name: Descargar Lista Completa de IPTV-ORG (URL Corregida)
+      - name: Descargar Lista Completa de IPTV-ORG (URL Estable)
         run: |
-          # Usamos la URL principal y más estable de IPTV-ORG
+          # Usamos la URL principal y estable de IPTV-ORG
           curl -s "https://iptv-org.github.io/iptv/index.m3u" > lista_completa_original.m3u
 
-      - name: Aplicar Filtros (Permitiendo IPs, US y conservando Grupos/EPG)
+      - name: Aplicar Filtros (LATAM + US, Conservando EPG/Grupos)
         run: |
           # ----------------------------------------------------------------------
-          # Archivo de destino final
           DEST_FILE="latam.m3u"
           INPUT_FILE="lista_completa_original.m3u"
           # ----------------------------------------------------------------------
@@ -38,19 +37,18 @@ jobs:
           # 1. Crear el encabezado M3U
           echo "#EXTM3U" > $DEST_FILE
           
-          # 2. Definir la lista de códigos de país a EXCLUIR (Bloqueo estricto de Europa, Asia, etc.)
-          # Los códigos latinos (mx, ar, co, etc.) y US NO están en esta lista.
+          # 2. Definir códigos de país a EXCLUIR (Europa, Asia, Oceanía, etc.)
           BLOCK_CODES='es|de|fr|it|uk|ru|cn|jp|kr|th|ae|tv|il|pl|cz|hu|ro|in|pk|bg|al|gr|be|ch|se|no|dk|fi|ie|nl|za|au|nz|ca|ir|eg|ng|ke|sa|tr|rs|ua|sk|hu'
 
-          # 3. Usar AWK para filtrar líneas de forma robusta
+          # 3. Usar AWK para filtrar líneas
           awk -v block_codes="$BLOCK_CODES" '
             /#EXTINF/ {
                 header = $0;
-                i = 1; # Bandera para saber que la siguiente línea es la URL
+                i = 1; 
                 next;
             }
             /http/ && i == 1 {
-                # Usamos la lógica de exclusión: si el header NO contiene un código de país bloqueado, se imprime.
+                # Si el encabezado NO contiene un código de país bloqueado (@es, @ru, etc.), se imprime.
                 if (header !~ block_codes "@") {
                     print header;
                     print $0; # Imprimir la URL
@@ -58,8 +56,11 @@ jobs:
                 i = 0;
             }' "$INPUT_FILE" >> $DEST_FILE
           
-      - name: Subir el Archivo Limpio (Sobrescribir latam.m3u)
+      - name: Limpiar archivo temporal
+        run: rm lista_completa_original.m3u
+
+      - name: Subir el Archivo Limpio (Sobreescribir latam.m3u)
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Actualización automática: Lista LATAM+US(Latino) filtrada y limpia (Manteniendo Grupos)."
-          files: latam.m3u
+          file_pattern: latam.m3u # Sintaxis correcta para v5
