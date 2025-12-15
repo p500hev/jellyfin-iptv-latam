@@ -26,44 +26,34 @@ jobs:
           
           # 1. DESCARGAR FUENTE
           echo "# Descargando lista fuente..."
-          curl -s "https://iptv-org.github.io/iptv/index.m3u" > $INPUT_FILE
+          curl -s "https://raw.githubusercontent.com/iptv-org/iptv/master/index.m3u" > $INPUT_FILE
 
           # 2. CONFIGURAR FILTROS Y ENCABEZADO
-          echo "# Aplicando triple filtro..."
+          echo "# Aplicando filtro de Inclusión por Grupo/Región (Más robusto)..."
           echo "#EXTM3U" > $TEMP_FILTER_FILE
           
-          # CÓDIGOS DE PAÍS QUE QUEREMOS MANTENER (LATAM y US)
-          INCLUDE_CODES='mx|ar|co|cl|pe|ec|ve|bo|py|uy|cr|pa|gt|hn|ni|sv|cu|do|pr|us'
+          # GRUPOS REGIONALES QUE QUEREMOS MANTENER (Américas, donde están LATAM y US)
+          INCLUDE_REGIONS='North America|South America|Caribbean|Canada|United States'
           
-          # GRUPOS QUE QUEREMOS EXCLUIR
+          # GRUPOS QUE QUEREMOS EXCLUIR ESTRICTAMENTE (Religiosos, Compras, etc.)
           EXCLUDE_GROUPS='Religious|Shopping|Sales|Infomercial|Adult|Unknown|Geolocked|Arabic|Indian|Pakistani|Australian|Asian|Russian|Turkish|European|XX|News|Sports|VOD|Music'
           
-          # CÓDIGOS DE PAÍS ADICIONALES A EXCLUIR EXPLICITAMENTE (Incluye at, iq, in, etc.)
-          EXCLUDE_COUNTRY_CODES='es|de|fr|it|uk|ru|cn|jp|kr|th|ae|tv|il|pl|cz|hu|ro|in|pk|bg|al|gr|be|ch|se|no|dk|fi|ie|nl|za|au|nz|ca|ir|eg|ng|ke|sa|tr|rs|ua|sk|hu|at|iq|in'
-
-
-          # 3. FILTRAR y ESCRIBIR en Temporal (Triple Lógica AWK)
-          awk -v include_codes="$INCLUDE_CODES" -v exclude_groups="$EXCLUDE_GROUPS" -v exclude_countries="$EXCLUDE_COUNTRY_CODES" '
+          # 3. FILTRAR y ESCRIBIR en Temporal (Doble Lógica de Región)
+          awk -v include_regions="$INCLUDE_REGIONS" -v exclude_groups="$EXCLUDE_GROUPS" '
             /#EXTINF/ {
                 header = $0;
                 i = 1; 
                 next;
             }
             /http/ && i == 1 {
-                # Criterio 1: EXCLUSIÓN por Grupo (Bloquea Religious, Shopping, Music, etc.)
+                # Criterio 1: EXCLUSIÓN por Grupo Específico (Bloquea ventas, religión, música, etc.)
                 if (header ~ "group-title=\"" exclude_groups) {
                     i = 0;
                     next;
                 }
                 
-                # Criterio 2: EXCLUSIÓN por Código de País (Bloquea at, de, ru, etc.)
-                if (header ~ exclude_countries "@") {
-                    i = 0;
-                    next;
-                }
-                
-                # Criterio 3: INCLUSIÓN (Solo si el canal es LATAM/US y no fue excluido antes)
-                if (header ~ include_codes "@") {
+                # Criterio 2: INCLUSIÓN por Región Geográfica (Solo si está en América)
+                if (header ~ "group-title=\"" include_regions) {
                     print header;
                     print $0;
                 }
