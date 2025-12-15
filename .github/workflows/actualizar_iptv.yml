@@ -1,4 +1,24 @@
-- name: Descargar, Filtrar y Generar Archivo Final (Método de INCLUSIÓN)
+name: Actualización Automática de Lista LATAM (FINAL DEFINITIVO)
+
+on:
+  schedule:
+    - cron: '0 0 * * *' 
+  workflow_dispatch:
+
+jobs:
+  filtrar_y_actualizar:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Descargar, Filtrar y Generar Archivo Final
         run: |
           # ----------------------------------------------------------------------
           DEST_FILE="latam.m3u"
@@ -17,7 +37,7 @@
           # Lista de códigos de país que QUEREMOS MANTENER (LATAM y US)
           INCLUDE_CODES='mx|ar|co|cl|pe|ec|ve|bo|py|uy|cr|pa|gt|hn|ni|sv|cu|do|pr|us'
 
-          # 3. FILTRAR y ESCRIBIR en Temporal (Ahora buscamos COINCIDENCIAS)
+          # 3. FILTRAR y ESCRIBIR en Temporal (Método de Inclusión)
           awk -v include_codes="$INCLUDE_CODES" '
             /#EXTINF/ {
                 header = $0;
@@ -25,7 +45,7 @@
                 next;
             }
             /http/ && i == 1 {
-                # Si el encabezado SÍ contiene un código de país BUENO (@mx, @us, etc.), se imprime.
+                # Si el encabezado SÍ contiene un código de país BUENO, se imprime.
                 if (header ~ include_codes "@") {
                     print header;
                     print $0;
@@ -36,3 +56,16 @@
           # 4. SOBREESCRIBIR el archivo final (latam.m3u)
           echo "# Sobrescribiendo archivo de destino final..."
           mv $TEMP_FILTER_FILE $DEST_FILE
+          
+      - name: Limpieza de Archivos Temporales
+        run: |
+          echo "## Eliminando archivos temporales..."
+          rm -f lista_completa_original.m3u
+          rm -f latam_temp.m3u
+          
+      - name: Subir solo el Archivo Final (latam.m3u)
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Actualización automática: Lista LATAM+US(Latino) filtrada y limpia (Commit Final)."
+          files_to_add: latam.m3u
+          file_pattern: 'latam.m3u'
