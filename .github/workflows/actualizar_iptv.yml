@@ -1,0 +1,74 @@
+name: Actualización Automática de Lista LATAM (Final)
+
+# Se ejecuta diariamente a las 04:00 AM UTC
+on:
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+jobs:
+  filtrar_y_actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Descargar Lista Completa de IPTV-ORG
+        # Usamos el index completo para asegurar la captura de todos los canales latinos
+        run: |
+          curl -s "https://raw.githubusercontent.com/iptv-org/iptv/master/index/index.m3u" > lista_completa_original.m3u
+
+      - name: Aplicar Filtros (Permitiendo IPs, US y conservando Grupos/EPG)
+        run: |
+          # ----------------------------------------------------------------------
+          # ¡Paso Crucial! Reemplaza 'nombre_de_tu_lista.m3u' con el nombre exacto 
+          # del archivo al que apunta tu Jellyfin (ej. 'latam.m3u').
+          DEST_FILE="latam.m3u"
+          # ----------------------------------------------------------------------
+
+          # 1. Crear el encabezado M3U
+          echo "#EXTM3U" > $DEST_FILE
+          
+          # 2. Definir la lista de países/códigos a EXCLUIR (Europa y Asia, etc.)
+          # Códigos comunes de países NO-LATAM para eliminar
+          BLOCK_CODES='es|de|fr|it|uk|ru|cn|jp|kr|th|ae|tv'
+
+          # 3. Usar AWK para filtrar líneas de forma inteligente:
+          # - Busca el tvg-id para aplicar el filtro geográfico estricto.
+          # - Mantiene group-title, IPs y URLs sin filtrar.
+          awk -v block_codes="$BLOCK_CODES" '
+            /#EXTINF/ {
+                # Esta línea es la cabecera (incluye tvg-id y group-title)
+                header = $0;
+                i = 1; # Bandera para saber que la siguiente línea es la URL
+                next;
+            }
+            /http/ && i == 1 {
+                # Esta línea es la URL
+                url = $0;
+                
+                # Expresión regular que busca tvg-id de países prohibidos.
+                # Se utiliza el campo del tvg-id, si existe.
+                # Nota: Permite US (.us) para canales latinos de USA.
+                
+                # Se busca la lista de códigos de bloqueo dentro del header.
+                if (header ~ block_codes "@") {
+                    # Si el canal coincide con un código de bloqueo (ej. .es@), se ignora.
+                } else {
+                    # Si no coincide con un código de bloqueo, se incluye.
+                    print header;
+                    print url;
+                }
+                i = 0; # Resetear la bandera
+            }' lista_completa_original.m3u >> $DEST_FILE
+          
+          # 4. Asegurar que los nombres de archivo se actualicen correctamente
+          mv $DEST_FILE latam.m3u
+
+      - name: Subir el Archivo Limpio (Sobrescribir)
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Actualización automática: Lista LATAM+US(Latino) filtrada."
+          files: latam.m3u # ¡Reemplaza también aquí!
