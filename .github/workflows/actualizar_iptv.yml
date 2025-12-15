@@ -1,18 +1,14 @@
 name: Actualización Automática de Lista LATAM (Final)
 
-# 1. Definición de la Frecuencia
-# Ejecutar diariamente a la medianoche (00:00 UTC)
 on:
   schedule:
     - cron: '0 0 * * *' 
-  # Permite ejecución manual
   workflow_dispatch:
 
 jobs:
   filtrar_y_actualizar:
     runs-on: ubuntu-latest
     
-    # SOLUCIÓN AL ERROR DE PERMISOS 403: Otorga permisos de escritura al bot
     permissions:
       contents: write
       
@@ -22,25 +18,22 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           
-      - name: Descargar Lista Completa de IPTV-ORG (URL Estable)
-        run: |
-          # Usamos la URL principal y estable de IPTV-ORG
-          curl -s "https://iptv-org.github.io/iptv/index.m3u" > lista_completa_original.m3u
-
-      - name: Aplicar Filtros (LATAM + US, Conservando EPG/Grupos)
+      - name: Descargar, Filtrar y Generar Archivo Final
         run: |
           # ----------------------------------------------------------------------
           DEST_FILE="latam.m3u"
+          TEMP_FILTER_FILE="latam_temp.m3u"
           INPUT_FILE="lista_completa_original.m3u"
           # ----------------------------------------------------------------------
           
-          # 1. Crear el encabezado M3U
-          echo "#EXTM3U" > $DEST_FILE
-          
-          # 2. Definir códigos de país a EXCLUIR (Europa, Asia, Oceanía, etc.)
+          # 1. DESCARGAR FUENTE (Temporal)
+          curl -s "https://iptv-org.github.io/iptv/index.m3u" > $INPUT_FILE
+
+          # 2. CONFIGURAR FILTROS Y ENCABEZADO
+          echo "#EXTM3U" > $TEMP_FILTER_FILE
           BLOCK_CODES='es|de|fr|it|uk|ru|cn|jp|kr|th|ae|tv|il|pl|cz|hu|ro|in|pk|bg|al|gr|be|ch|se|no|dk|fi|ie|nl|za|au|nz|ca|ir|eg|ng|ke|sa|tr|rs|ua|sk|hu'
 
-          # 3. Usar AWK para filtrar líneas
+          # 3. FILTRAR y ESCRIBIR en Temporal
           awk -v block_codes="$BLOCK_CODES" '
             /#EXTINF/ {
                 header = $0;
@@ -48,19 +41,21 @@ jobs:
                 next;
             }
             /http/ && i == 1 {
-                # Si el encabezado NO contiene un código de país bloqueado (@es, @ru, etc.), se imprime.
                 if (header !~ block_codes "@") {
                     print header;
-                    print $0; # Imprimir la URL
+                    print $0;
                 }
                 i = 0;
-            }' "$INPUT_FILE" >> $DEST_FILE
-          
-      - name: Limpiar archivo temporal
-        run: rm lista_completa_original.m3u
+            }' "$INPUT_FILE" >> $TEMP_FILTER_FILE
 
-      - name: Subir el Archivo Limpio (Sobreescribir latam.m3u)
+          # 4. SOBREESCRIBIR el archivo final (latam.m3u) con el contenido filtrado
+          mv $TEMP_FILTER_FILE $DEST_FILE
+          
+          # 5. LIMPIEZA FINAL: Borrar el archivo original descargado
+          rm $INPUT_FILE
+
+      - name: Subir solo el Archivo Final (latam.m3u)
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Actualización automática: Lista LATAM+US(Latino) filtrada y limpia (Manteniendo Grupos)."
-          file_pattern: latam.m3u # Sintaxis correcta para v5
+          commit_message: "Actualización automática: Lista LATAM+US(Latino) filtrada y limpia (Finalizado)."
+          file_pattern: latam.m3u # <<<< Asegura que solo este archivo se incluya
