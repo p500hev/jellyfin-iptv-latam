@@ -1,5 +1,4 @@
 name: Actualizacion_IPTV_LATAM
-
 on:
   schedule:
     - cron: '0 0 * * *' 
