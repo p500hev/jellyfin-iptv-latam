@@ -20,24 +20,23 @@ jobs:
         run: |
           curl -s "https://raw.githubusercontent.com/iptv-org/iptv/master/index/index.m3u" > lista_completa_original.m3u
 
-      - name: Aplicar Filtros (Permitiendo IPs, US y conservando Grupos/EPG)
+- name: Aplicar Filtros (Permitiendo IPs, US y conservando Grupos/EPG)
         run: |
           # ----------------------------------------------------------------------
           # ¡Paso Crucial! Reemplaza 'nombre_de_tu_lista.m3u' con el nombre exacto 
           # del archivo al que apunta tu Jellyfin (ej. 'latam.m3u').
-          DEST_FILE="latam.m3u"
+          DEST_FILE="[NOMBRE_DE_TU_LISTA_ACTUAL].m3u"
           # ----------------------------------------------------------------------
 
           # 1. Crear el encabezado M3U
           echo "#EXTM3U" > $DEST_FILE
           
           # 2. Definir la lista de países/códigos a EXCLUIR (Europa y Asia, etc.)
-          # Códigos comunes de países NO-LATAM para eliminar
-          BLOCK_CODES='es|de|fr|it|uk|ru|cn|jp|kr|th|ae|tv'
+          # Incluye códigos como ES, DE, RU, CN, JP, KR, TH, AE, TV, etc.
+          BLOCK_CODES='es|de|fr|it|uk|ru|cn|jp|kr|th|ae|tv|il|pl|cz|hu|ro|in|pk'
 
-          # 3. Usar AWK para filtrar líneas de forma inteligente:
-          # - Busca el tvg-id para aplicar el filtro geográfico estricto.
-          # - Mantiene group-title, IPs y URLs sin filtrar.
+          # 3. Usar AWK para filtrar líneas de forma inteligente y escribir directamente al archivo final:
+          # (Este paso asegura la conservación de IPs, group-title y canales latinos de USA/LATAM)
           awk -v block_codes="$BLOCK_CODES" '
             /#EXTINF/ {
                 # Esta línea es la cabecera (incluye tvg-id y group-title)
@@ -51,21 +50,18 @@ jobs:
                 
                 # Expresión regular que busca tvg-id de países prohibidos.
                 # Se utiliza el campo del tvg-id, si existe.
-                # Nota: Permite US (.us) para canales latinos de USA.
                 
                 # Se busca la lista de códigos de bloqueo dentro del header.
                 if (header ~ block_codes "@") {
                     # Si el canal coincide con un código de bloqueo (ej. .es@), se ignora.
                 } else {
-                    # Si no coincide con un código de bloqueo, se incluye.
+                    # Si NO coincide con un código de bloqueo, se incluye.
+                    # Esto permite canales de LATAM (mx, ar, co, etc.) y USA (us).
                     print header;
                     print url;
                 }
                 i = 0; # Resetear la bandera
             }' lista_completa_original.m3u >> $DEST_FILE
-          
-          # 4. Asegurar que los nombres de archivo se actualicen correctamente
-          mv $DEST_FILE latam.m3u
 
       - name: Subir el Archivo Limpio (Sobrescribir)
         uses: stefanzweifel/git-auto-commit-action@v5
