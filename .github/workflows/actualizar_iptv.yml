@@ -27,11 +27,11 @@ jobs:
           # ----------------------------------------------------------------------
           
           # 1. DESCARGAR FUENTE
-          echo "Descargando lista fuente..."
+          echo "# Descargando lista fuente..."
           curl -s "https://iptv-org.github.io/iptv/index.m3u" > $INPUT_FILE
 
           # 2. CONFIGURAR FILTROS Y ENCABEZADO
-          echo "Aplicando filtros y generando temporal..."
+          echo "# Aplicando filtros y generando temporal..."
           echo "#EXTM3U" > $TEMP_FILTER_FILE
           BLOCK_CODES='es|de|fr|it|uk|ru|cn|jp|kr|th|ae|tv|il|pl|cz|hu|ro|in|pk|bg|al|gr|be|ch|se|no|dk|fi|ie|nl|za|au|nz|ca|ir|eg|ng|ke|sa|tr|rs|ua|sk|hu'
 
@@ -50,19 +50,19 @@ jobs:
                 i = 0;
             }' "$INPUT_FILE" >> $TEMP_FILTER_FILE
 
-          # 4. SOBREESCRIBIR el archivo final (latam.m3u) con el contenido filtrado
-          echo "Sobrescribiendo archivo de destino..."
+          # 4. SOBREESCRIBIR el archivo final (latam.m3u)
+          echo "# Sobrescribiendo archivo de destino final..."
           mv $TEMP_FILTER_FILE $DEST_FILE
           
       - name: Limpieza de Archivos Temporales
         run: |
-          echo "Eliminando archivos temporales..."
+          echo "## Eliminando archivos temporales..."
           rm -f lista_completa_original.m3u
           rm -f latam_temp.m3u
-
+          
       - name: Subir solo el Archivo Final (latam.m3u)
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Actualización automática: Lista LATAM+US(Latino) filtrada y limpia (Commit Final)."
-          files_to_add: latam.m3u # Usamos files_to_add para ser más explícitos en el commit
-          file_pattern: 'latam.m3u'
+          files_to_add: latam.m3u # Asegura que solo este archivo se agregue al commit
+          file_pattern: 'latam.m3u' # Sintaxis correcta para v5
