@@ -1,41 +1,40 @@
 name: Actualización Automática de Lista LATAM (Final)
 
 # 1. Definición de la Frecuencia
-# Esta acción se ejecutará automáticamente todos los días a las 04:00 AM UTC
 on:
   schedule:
-    - cron: '0 4 * * *'
-  # Permite ejecutar el workflow manualmente desde la interfaz de GitHub
+    - cron: '0 0 * * *' # Ejecutar diariamente a las 00:00 UTC (medianoche)
   workflow_dispatch:
 
 jobs:
   filtrar_y_actualizar:
     runs-on: ubuntu-latest
+    
+    # -----------------------------------------------------------
+    # SOLUCIÓN AL ERROR 403: Se añaden permisos de escritura
+    permissions:
+      contents: write
+    # -----------------------------------------------------------
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        # Necesario para que el action pueda subir los cambios
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Descargar Lista Completa de IPTV-ORG
-        # Usamos el index completo para asegurar la captura de todos los canales latinos
         run: |
           curl -s "https://raw.githubusercontent.com/iptv-org/iptv/master/index/index.m3u" > lista_completa_original.m3u
 
       - name: Aplicar Filtros (Permitiendo IPs, US y conservando Grupos/EPG)
         run: |
-          # ----------------------------------------------------------------------
-          # Archivo de destino final (latam.m3u)
+          # Archivo de destino final
           DEST_FILE="latam.m3u"
-          # ----------------------------------------------------------------------
-
+          
           # 1. Crear el encabezado M3U
           echo "#EXTM3U" > $DEST_FILE
           
-          # 2. Definir la lista de países/códigos a EXCLUIR (Europa, Asia, África, Oceanía)
-          # NOTA: Solo se filtran los códigos de país que aparecen en el tvg-id (ej: .es@)
-          # Los códigos latinos (mx, ar, cl, co, etc.) y US NO están en esta lista.
+          # 2. Definir la lista de países/códigos a EXCLUIR (Europa, Asia, etc.)
           BLOCK_CODES='es|de|fr|it|uk|ru|cn|jp|kr|th|ae|tv|il|pl|cz|hu|ro|in|pk|bg|al|gr|be|ch|se|no|dk|fi|ie|nl|za|au|nz|ca|ir|eg|ng|ke|sa|tr|rs|ua|sk|hu'
 
           # 3. Usar AWK para filtrar líneas de forma inteligente y escribir directamente.
@@ -48,12 +47,11 @@ jobs:
             /http/ && i == 1 {
                 url = $0;
                 
-                # Expresión regular que busca tvg-id de países prohibidos.
-                # Si el encabezado contiene un código de bloqueo seguido de "@" (ej: .es@), se ignora.
+                # Si el encabezado NO contiene un código de país bloqueado (ej: .es@)
                 if (header ~ block_codes "@") {
-                    # Código bloqueado encontrado, se ignora el par header/url
+                    # Código bloqueado encontrado, se ignora
                 } else {
-                    # No es un código bloqueado (LATAM o US), se imprime el par header/url
+                    # No es un código bloqueado (LATAM o US), se imprime
                     print header;
                     print url;
                 }
