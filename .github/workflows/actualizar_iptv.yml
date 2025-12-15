@@ -1,29 +1,49 @@
-- name: Descargar, Filtrar y Generar Archivo Final
+name: Actualizacion_IPTV_LATAM
+
+on:
+  schedule:
+    - cron: '0 0 * * *' 
+  workflow_dispatch:
+
+jobs:
+  filtrar_y_actualizar:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Descargar, Filtrar y Generar Archivo Final
         run: |
-          # ----------------------------------------------------------------------
+          # Variables de archivo
           DEST_FILE="latam.m3u"
           TEMP_FILTER_FILE="latam_temp.m3u"
           INPUT_FILE="lista_completa_original.m3u"
-          # ----------------------------------------------------------------------
           
+          # 1. DESCARGAR FUENTE
           echo "# Descargando lista fuente..."
-          curl -s "https://iptv-org.github.io/iptv/index.m3u" > $INPUT_FILE
+          curl -s "https://raw.githubusercontent.com/iptv-org/iptv/master/index.m3u" > $INPUT_FILE
 
-          echo "# Aplicando doble filtro: Inclusión por País y Exclusión por Grupo/País..."
+          # 2. CONFIGURAR FILTROS Y ENCABEZADO
+          echo "# Aplicando triple filtro..."
           echo "#EXTM3U" > $TEMP_FILTER_FILE
           
           # CÓDIGOS DE PAÍS QUE QUEREMOS MANTENER (LATAM y US)
           INCLUDE_CODES='mx|ar|co|cl|pe|ec|ve|bo|py|uy|cr|pa|gt|hn|ni|sv|cu|do|pr|us'
           
           # GRUPOS QUE QUEREMOS EXCLUIR
-          EXCLUDE_GROUPS='Religious|Shopping|Sales|Infomercial|Adult|Unknown|Geolocked|Arabic|Indian|Pakistani|Australian|Asian|Russian|Turkish|European|XX|News|Sports|VOD'
+          EXCLUDE_GROUPS='Religious|Shopping|Sales|Infomercial|Adult|Unknown|Geolocked|Arabic|Indian|Pakistani|Australian|Asian|Russian|Turkish|European|XX|News|Sports|VOD|Music'
           
-          # CÓDIGOS DE PAÍS ADICIONALES A EXCLUIR EXPLICITAMENTE (Europa, Asia, etc.)
-          # Incluye Austria (at) y otros países que deben ser bloqueados
+          # CÓDIGOS DE PAÍS ADICIONALES A EXCLUIR EXPLICITAMENTE (Incluye at, iq, in, etc.)
           EXCLUDE_COUNTRY_CODES='es|de|fr|it|uk|ru|cn|jp|kr|th|ae|tv|il|pl|cz|hu|ro|in|pk|bg|al|gr|be|ch|se|no|dk|fi|ie|nl|za|au|nz|ca|ir|eg|ng|ke|sa|tr|rs|ua|sk|hu|at|iq|in'
 
 
-          # 3. FILTRAR y ESCRIBIR en Temporal (Triple Lógica)
+          # 3. FILTRAR y ESCRIBIR en Temporal (Triple Lógica AWK)
           awk -v include_codes="$INCLUDE_CODES" -v exclude_groups="$EXCLUDE_GROUPS" -v exclude_countries="$EXCLUDE_COUNTRY_CODES" '
             /#EXTINF/ {
                 header = $0;
@@ -31,19 +51,19 @@
                 next;
             }
             /http/ && i == 1 {
-                # Criterio 1: EXCLUSIÓN por Grupo (Si es Religious, Shopping, etc., se salta)
+                # Criterio 1: EXCLUSIÓN por Grupo (Bloquea Religious, Shopping, Music, etc.)
                 if (header ~ "group-title=\"" exclude_groups) {
                     i = 0;
                     next;
                 }
                 
-                # Criterio 2: EXCLUSIÓN por Código de País (Si es at, de, ru, etc., se salta)
+                # Criterio 2: EXCLUSIÓN por Código de País (Bloquea at, de, ru, etc.)
                 if (header ~ exclude_countries "@") {
                     i = 0;
                     next;
                 }
                 
-                # Criterio 3: INCLUSIÓN (Si NO fue excluido y coincide con un código de país bueno)
+                # Criterio 3: INCLUSIÓN (Solo si el canal es LATAM/US y no fue excluido antes)
                 if (header ~ include_codes "@") {
                     print header;
                     print $0;
@@ -51,5 +71,19 @@
                 i = 0;
             }' "$INPUT_FILE" >> $TEMP_FILTER_FILE
 
+          # 4. SOBREESCRIBIR el archivo final
           echo "# Sobrescribiendo archivo de destino final..."
           mv $TEMP_FILTER_FILE $DEST_FILE
+          
+      - name: Limpieza de Archivos Temporales
+        run: |
+          echo "## Eliminando archivos temporales..."
+          rm -f lista_completa_original.m3u
+          rm -f latam_temp.m3u
+          
+      - name: Subir solo el Archivo Final (latam.m3u)
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Actualización automática: Lista LATAM+US filtrada y limpia."
+          files_to_add: latam.m3u
+          file_pattern: 'latam.m3u'
