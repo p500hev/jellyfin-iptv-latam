@@ -24,7 +24,7 @@ jobs:
           
       - name: Descargar Lista Completa de IPTV-ORG
         run: |
-          curl -s "https://raw.githubusercontent.com/iptv-org/iptv/master/index/index.m3u" > lista_completa_original.m3u
+          curl -s "https://iptv-org.github.io/iptv/index.m3u" > lista_completa_original.m3u
 
       - name: Aplicar Filtros (Permitiendo IPs, US y conservando Grupos/EPG)
         run: |
