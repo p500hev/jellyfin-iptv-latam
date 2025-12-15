@@ -1,24 +1,4 @@
-name: Actualización Automática de Lista LATAM (FINAL DEFINITIVO)
-
-on:
-  schedule:
-    - cron: '0 0 * * *' 
-  workflow_dispatch:
-
-jobs:
-  filtrar_y_actualizar:
-    runs-on: ubuntu-latest
-    
-    permissions:
-      contents: write
-      
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: Descargar, Filtrar y Generar Archivo Final
+- name: Descargar, Filtrar y Generar Archivo Final
         run: |
           # ----------------------------------------------------------------------
           DEST_FILE="latam.m3u"
@@ -26,35 +6,44 @@ jobs:
           INPUT_FILE="lista_completa_original.m3u"
           # ----------------------------------------------------------------------
           
-          # 1. DESCARGAR FUENTE
           echo "# Descargando lista fuente..."
           curl -s "https://iptv-org.github.io/iptv/index.m3u" > $INPUT_FILE
 
-          # 2. CONFIGURAR FILTROS Y ENCABEZADO
-          echo "# Aplicando doble filtro: Inclusión por País y Exclusión por Grupo..."
+          echo "# Aplicando doble filtro: Inclusión por País y Exclusión por Grupo/País..."
           echo "#EXTM3U" > $TEMP_FILTER_FILE
           
           # CÓDIGOS DE PAÍS QUE QUEREMOS MANTENER (LATAM y US)
           INCLUDE_CODES='mx|ar|co|cl|pe|ec|ve|bo|py|uy|cr|pa|gt|hn|ni|sv|cu|do|pr|us'
           
-          # GRUPOS QUE QUEREMOS EXCLUIR EXPLICITAMENTE (Incluye Religiosos y Ventas)
+          # GRUPOS QUE QUEREMOS EXCLUIR
           EXCLUDE_GROUPS='Religious|Shopping|Sales|Infomercial|Adult|Unknown|Geolocked|Arabic|Indian|Pakistani|Australian|Asian|Russian|Turkish|European|XX|News|Sports|VOD'
+          
+          # CÓDIGOS DE PAÍS ADICIONALES A EXCLUIR EXPLICITAMENTE (Europa, Asia, etc.)
+          # Incluye Austria (at) y otros países que deben ser bloqueados
+          EXCLUDE_COUNTRY_CODES='es|de|fr|it|uk|ru|cn|jp|kr|th|ae|tv|il|pl|cz|hu|ro|in|pk|bg|al|gr|be|ch|se|no|dk|fi|ie|nl|za|au|nz|ca|ir|eg|ng|ke|sa|tr|rs|ua|sk|hu|at|iq|in'
 
-          # 3. FILTRAR y ESCRIBIR en Temporal (Doble Lógica)
-          awk -v include_codes="$INCLUDE_CODES" -v exclude_groups="$EXCLUDE_GROUPS" '
+
+          # 3. FILTRAR y ESCRIBIR en Temporal (Triple Lógica)
+          awk -v include_codes="$INCLUDE_CODES" -v exclude_groups="$EXCLUDE_GROUPS" -v exclude_countries="$EXCLUDE_COUNTRY_CODES" '
             /#EXTINF/ {
                 header = $0;
                 i = 1; 
                 next;
             }
             /http/ && i == 1 {
-                # Criterio de EXCLUSIÓN por Grupo (Si coincide con un grupo no deseado, se ignora)
+                # Criterio 1: EXCLUSIÓN por Grupo (Si es Religious, Shopping, etc., se salta)
                 if (header ~ "group-title=\"" exclude_groups) {
-                    i = 0; # Resetear y saltar
+                    i = 0;
                     next;
                 }
                 
-                # Criterio de INCLUSIÓN por País (Si NO fue excluido y coincide con un código de país bueno, se imprime)
+                # Criterio 2: EXCLUSIÓN por Código de País (Si es at, de, ru, etc., se salta)
+                if (header ~ exclude_countries "@") {
+                    i = 0;
+                    next;
+                }
+                
+                # Criterio 3: INCLUSIÓN (Si NO fue excluido y coincide con un código de país bueno)
                 if (header ~ include_codes "@") {
                     print header;
                     print $0;
@@ -62,19 +51,5 @@ jobs:
                 i = 0;
             }' "$INPUT_FILE" >> $TEMP_FILTER_FILE
 
-          # 4. SOBREESCRIBIR el archivo final (latam.m3u)
           echo "# Sobrescribiendo archivo de destino final..."
           mv $TEMP_FILTER_FILE $DEST_FILE
-          
-      - name: Limpieza de Archivos Temporales
-        run: |
-          echo "## Eliminando archivos temporales..."
-          rm -f lista_completa_original.m3u
-          rm -f latam_temp.m3u
-          
-      - name: Subir solo el Archivo Final (latam.m3u)
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Actualización automática: Lista LATAM+US(Latino) filtrada y limpia (Commit Final)."
-          files_to_add: latam.m3u
-          file_pattern: 'latam.m3u'
