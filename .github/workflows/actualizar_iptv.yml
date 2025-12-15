@@ -31,21 +31,30 @@ jobs:
           curl -s "https://iptv-org.github.io/iptv/index.m3u" > $INPUT_FILE
 
           # 2. CONFIGURAR FILTROS Y ENCABEZADO
-          echo "# Aplicando filtros por inclusión..."
+          echo "# Aplicando doble filtro: Inclusión por País y Exclusión por Grupo..."
           echo "#EXTM3U" > $TEMP_FILTER_FILE
           
-          # Lista de códigos de país que QUEREMOS MANTENER (LATAM y US)
+          # CÓDIGOS DE PAÍS QUE QUEREMOS MANTENER (LATAM y US)
           INCLUDE_CODES='mx|ar|co|cl|pe|ec|ve|bo|py|uy|cr|pa|gt|hn|ni|sv|cu|do|pr|us'
+          
+          # GRUPOS QUE QUEREMOS EXCLUIR EXPLICITAMENTE (Incluye Religiosos y Ventas)
+          EXCLUDE_GROUPS='Religious|Shopping|Sales|Infomercial|Adult|Unknown|Geolocked|Arabic|Indian|Pakistani|Australian|Asian|Russian|Turkish|European|XX|News|Sports|VOD'
 
-          # 3. FILTRAR y ESCRIBIR en Temporal (Método de Inclusión)
-          awk -v include_codes="$INCLUDE_CODES" '
+          # 3. FILTRAR y ESCRIBIR en Temporal (Doble Lógica)
+          awk -v include_codes="$INCLUDE_CODES" -v exclude_groups="$EXCLUDE_GROUPS" '
             /#EXTINF/ {
                 header = $0;
                 i = 1; 
                 next;
             }
             /http/ && i == 1 {
-                # Si el encabezado SÍ contiene un código de país BUENO, se imprime.
+                # Criterio de EXCLUSIÓN por Grupo (Si coincide con un grupo no deseado, se ignora)
+                if (header ~ "group-title=\"" exclude_groups) {
+                    i = 0; # Resetear y saltar
+                    next;
+                }
+                
+                # Criterio de INCLUSIÓN por País (Si NO fue excluido y coincide con un código de país bueno, se imprime)
                 if (header ~ include_codes "@") {
                     print header;
                     print $0;
