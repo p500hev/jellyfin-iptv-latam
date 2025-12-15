@@ -26,7 +26,7 @@ jobs:
           
           # 1. DESCARGAR FUENTE
           echo "# Descargando lista fuente..."
-          curl -s "https://raw.githubusercontent.com/iptv-org/iptv/master/index.m3u" > $INPUT_FILE
+          curl -s "https://iptv-org.github.io/iptv/index.m3u" > $INPUT_FILE
 
           # 2. CONFIGURAR FILTROS Y ENCABEZADO
           echo "# Aplicando filtro de Inclusión por Grupo/Región (Más robusto)..."
