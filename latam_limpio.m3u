@@ -1,4 +1,4 @@
-#EXTM3U url-tvg="http://localhost:3000/guide.xml" tvg-rec-days="7"
+#EXTM3U url-tvg="https://raw.githubusercontent.com/p500hev/jellyfin-iptv-latam/refs/heads/main/guide.xml" tvg-rec-days="7"
 
 # --- MÉXICO ---
 #EXTINF:-1 tvg-id="Azteca7.mx@SD" tvg-logo="https://i.imgur.com/UtFXjIn.png" group-title="General",Azteca 7 (720p) [Geo-blocked]
@@ -186,4 +186,5 @@ http://181.188.216.5:18000/play/a0pm/index.m3u8
 http://190.2.212.209:8050/play/a0oa
 
 #EXTINF:-1 tvg-id="Cinecanal.us@Panregional" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/CinecanalLA.png/512px-CinecanalLA.png" group-title="Movies",Cinecanal
+
 https://cors-proxy.cooks.fyi/https://streamer1.nexgen.bz/CINECANAL/index.m3u8
