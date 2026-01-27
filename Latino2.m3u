@@ -1,5 +1,34 @@
 #EXTM3U
 
+#EXTINF:-1 tvg-logo="https://imgur.com/WLf6FMA.png" group-title="CINE Y SERIES",UNIVERSAL
+http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch10&token=tecnotokenplustv&f=.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/Wihy0Js.png" group-title="CINE Y SERIES",SONY
+http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch6&token=tecnotokenplustv&f=.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/8eaNXsD.png" group-title="CINE Y SERIES",SPACE
+http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch1&token=tecnotokenplustv&f=.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/z895u04.png" group-title="CINE Y SERIES",A&E
+http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch3&token=tecnotokenplustv&f=.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/Gyvr277.png" group-title="CINE Y SERIES",HBO FAMILY
+http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch22&token=tecnotokenplustv&f=.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/JEIiU1Z.png" group-title="CINE Y SERIES",HBO 2
+http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch20&token=tecnotokenplustv&f=.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/ZBhSpry.png" group-title="CINE Y SERIES",PARAMOUNT
+http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch19&token=tecnotokenplustv&f=.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/yk4CGuv.png" group-title="CINE Y SERIES",STAR CHANNEL
+http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch21&token=tecnotokenplustv&f=.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/6WiM1el.png" group-title="ENTRETENIMIENTO",H&H
+http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch23&token=tecnotokenplustv&f=.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/wSBVHOB.png" group-title="CULTURAL",NATGEO
+http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch5&token=tecnotokenplustv&f=.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/YmIY1SF.png" group-title="DEPORTES",FOX SPORT 3
+http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch2&token=tecnotokenplustv&f=.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/shx9p2d.png" group-title="CULTURAL",DISCOVERY CHANNEL
+http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch15&token=tecnotokenplustv&f=.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/3i4z4kK.png" group-title="CULTURAL",HISTORY CHANNEL
+http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch7&token=tecnotokenplustv&f=.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/WUO8lA7.png" group-title="INFANTIL",CARTOON NETWORK
+http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch12&token=tecnotokenplustv&f=.m3u8
+
 #EXTINF:-1 tvg-logo="https://imgur.com/76pIwxw.png" group-title="MÉXICO" , Las Estrellas
 https://dai.google.com/ssai/event/_e1s_U52SCGL6zTnlTrbVQ/master.m3u8
 #EXTINF:-1 tvg-logo="https://imgur.com/xr0ApCT.png" group-title="MÉXICO" , AZ UNO
@@ -52,33 +81,3 @@ https://60417ddeaf0d9.streamlock.net:443/montemorelos/videomontemorelos/playlist
 https://5e50264bd6766.streamlock.net/mexiquense2/videomexiquense2/playlist.m3u8
 #EXTINF:-1 group-title="MÉXICO" tvg-id="865" tvg-name="Alcance TV" tvg-logo="https://cdn.m3u.cl/logo/865_Alcance_TV.png", Alcance TV
 https://5bf8041cb3fed.streamlock.net:443/AlcanceTV/AlcanceTV/playlist.m3u8
-
-#EXTINF:-1 tvg-logo="https://imgur.com/WLf6FMA.png" group-title="CINE Y SERIES",UNIVERSAL
-http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch10&token=tecnotokenplustv&f=.m3u8
-#EXTINF:-1 tvg-logo="https://imgur.com/Wihy0Js.png" group-title="CINE Y SERIES",SONY
-http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch6&token=tecnotokenplustv&f=.m3u8
-#EXTINF:-1 tvg-logo="https://imgur.com/8eaNXsD.png" group-title="CINE Y SERIES",SPACE
-http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch1&token=tecnotokenplustv&f=.m3u8
-#EXTINF:-1 tvg-logo="https://imgur.com/z895u04.png" group-title="CINE Y SERIES",A&E
-http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch3&token=tecnotokenplustv&f=.m3u8
-#EXTINF:-1 tvg-logo="https://imgur.com/Gyvr277.png" group-title="CINE Y SERIES",HBO FAMILY
-http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch22&token=tecnotokenplustv&f=.m3u8
-#EXTINF:-1 tvg-logo="https://imgur.com/JEIiU1Z.png" group-title="CINE Y SERIES",HBO 2
-http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch20&token=tecnotokenplustv&f=.m3u8
-#EXTINF:-1 tvg-logo="https://imgur.com/ZBhSpry.png" group-title="CINE Y SERIES",PARAMOUNT
-http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch19&token=tecnotokenplustv&f=.m3u8
-#EXTINF:-1 tvg-logo="https://imgur.com/yk4CGuv.png" group-title="CINE Y SERIES",STAR CHANNEL
-http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch21&token=tecnotokenplustv&f=.m3u8
-#EXTINF:-1 tvg-logo="https://imgur.com/6WiM1el.png" group-title="ENTRETENIMIENTO",H&H
-http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch23&token=tecnotokenplustv&f=.m3u8
-#EXTINF:-1 tvg-logo="https://imgur.com/wSBVHOB.png" group-title="CULTURAL",NATGEO
-http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch5&token=tecnotokenplustv&f=.m3u8
-#EXTINF:-1 tvg-logo="https://imgur.com/YmIY1SF.png" group-title="DEPORTES",FOX SPORT 3
-http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch2&token=tecnotokenplustv&f=.m3u8
-#EXTINF:-1 tvg-logo="https://imgur.com/shx9p2d.png" group-title="CULTURAL",DISCOVERY CHANNEL
-http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch15&token=tecnotokenplustv&f=.m3u8
-#EXTINF:-1 tvg-logo="https://imgur.com/3i4z4kK.png" group-title="CULTURAL",HISTORY CHANNEL
-http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch7&token=tecnotokenplustv&f=.m3u8
-#EXTINF:-1 tvg-logo="https://imgur.com/WUO8lA7.png" group-title="INFANTIL",CARTOON NETWORK
-http://tecnotv.club/2401en/phpcode/ssiptv.php?c=ch12&token=tecnotokenplustv&f=.m3u8
-
