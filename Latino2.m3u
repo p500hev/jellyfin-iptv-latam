@@ -3,16 +3,16 @@
 #EXTINF:-1 tvg-logo="https://imgur.com/shx9p2d.png" group-title="CULTURAL",DISCOVERY CHANNEL
 http://tecnotv.club/28ene/phpcode/ssiptv.php?c=ch15&token=tecnotokenplustv&f=.m3u8
 
-#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM", Discovery Channel HD
+#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",DISCOVERY CHANNEL 2
 http://tecnotv.club/28ene/phpcode/android3.php?c=a0kn&token=tecnotokenplustv
 
-#EXTINF:-1   group-title="TV PREMIUM", Fox Channel
+#EXTINF:-1   group-title="TV PREMIUM",FOX CHANNEL
 http://tecnotv.club/28ene/phpcode/android4.php?c=a08v&token=tecnotokenplustv
 
 #EXTINF:-1 tvg-logo="https://imgur.com/WLf6FMA.png" group-title="CINE Y SERIES",UNIVERSAL
 http://tecnotv.club/28ene/phpcode/ssiptv.php?c=ch10&token=tecnotokenplustv&f=.m3u8
 
-#EXTINF:-1 tvg-logo="https://imgur.com/8eaNXsD.png" group-title="CINE Y SERIES",SPACE
+#EXTINF:-1 tvg-logo="https://imgur.com/8eaNXsD.png" group-title="CINE Y SERIES",CARTOONITO
 http://tecnotv.club/28ene/phpcode/ssiptv.php?c=ch1&token=tecnotokenplustv&f=.m3u8
 
 #EXTINF:-1 tvg-logo="https://imgur.com/z895u04.png" group-title="CINE Y SERIES",A&E
@@ -42,51 +42,51 @@ http://tecnotv.club/28ene/phpcode/ssiptv.php?c=ch7&token=tecnotokenplustv&f=.m3u
 #EXTINF:-1 tvg-logo="https://imgur.com/WUO8lA7.png" group-title="INFANTIL",CARTOON NETWORK
 http://tecnotv.club/28ene/phpcode/ssiptv.php?c=ch12&token=tecnotokenplustv&f=.m3u8
 
-#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM", Adult Swim
+#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",ADULT SWIM
 http://tecnotv.club/28ene/phpcode/android3.php?c=a051&token=tecnotokenplustv
 
-#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM", Boomerang
+#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",BOOMERANG
 http://tecnotv.club/28ene/phpcode/android3.php?c=a0g0&token=tecnotokenplustv
 
 #EXTINF:-1 tvg-logo="https://imgur.com/X1aVw04.png" group-title="CINE Y SERIES",BOX CINEMA
 http://tecnotv.club/28ene/phpcode/distro.php?c=box-cinema
 
-#EXTINF:-1 group-title="TV PREMIUM", Cinemax HD
+#EXTINF:-1 group-title="TV PREMIUM",CINEMAX HD
 http://tecnotv.club/28ene/phpcode/lista1.php?c=a05b&token=tecnotokenplustv&f=.m3u8
 
-#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM", Discovery ID HD
+#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",DISCOVERY ID
 http://tecnotv.club/28ene/phpcode/android3.php?c=a0ks&token=tecnotokenplustv
 
-#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM", Discovery World HD
+#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",DISCOVERY WORLD
 http://tecnotv.club/28ene/phpcode/android3.php?c=a0kp&token=tecnotokenplustv
 
-#EXTINF:-1 tvg-id="I329.61311.schedulesdirect.org" tvg-name="Disney JR" tvg-logo="" group-title="INFANTIL",Disney JR
+#EXTINF:-1 tvg-id="I329.61311.schedulesdirect.org" tvg-name="Disney JR" tvg-logo="" group-title="INFANTIL",DISNEY JR
 http://tecnotv.club/28ene/phpcode/android.php?c=105&token=tecnotokenplustv&f=.m3u8|user-agent=Ng9mohpKHSjd69IxBYgzUXrWtsLrOu1vJRt
 
-#EXTINF:-1   group-title="TV PREMIUM", DreamWorks TV Latin America
+#EXTINF:-1   group-title="TV PREMIUM", DREAMWORKS LATINO AMERICA
 http://tecnotv.club/28ene/phpcode/android4.php?c=a0no&token=tecnotokenplustv
 
-#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM", UNIVERSAL CINEMA HD
+#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",UNIVERSAL CINEMA
 http://tecnotv.club/28ene/phpcode/android3.php?c=a0kt&token=tecnotokenplustv
 
-#EXTINF:-1   group-title="TV PREMIUM",  STUDIO UNIVERSAL
+#EXTINF:-1   group-title="TV PREMIUM",STUDIO UNIVERSAL
 http://tecnotv.club/28ene/phpcode/android4.php?c=a0bh&token=tecnotokenplustv
 
-#EXTINF:-1 group-title="TV PREMIUM", Lifetime
+#EXTINF:-1 group-title="TV PREMIUM",LIFETIME
 http://tecnotv.club/28ene/phpcode/lista1.php?c=a011&token=tecnotokenplustv&f=.m3u8
 
-#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM", SONY MOVIES HD
+#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",SONY MOVIES
 http://tecnotv.club/28ene/phpcode/android3.php?c=a03s&token=tecnotokenplustv
 
-#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM", Nat Geo HD
+#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",NAT GEO
 http://tecnotv.club/28ene/phpcode/android3.php?c=a0kk&token=tecnotokenplustv
 
-#EXTINF:-1 tvg-id="5ddd7c348520b40009c347e2" tvg-name="Nickelodeon Clásico" tvg-logo="https://images.pluto.tv/channels/5ddd7c348520b40009c347e2/colorLogoPNG.png" group-title="Kids" tvg-chno="1440", Nickelodeon Clásico
+#EXTINF:-1 tvg-id="5ddd7c348520b40009c347e2" tvg-name="Nickelodeon Clásico" tvg-logo="https://images.pluto.tv/channels/5ddd7c348520b40009c347e2/colorLogoPNG.png" group-title="Kids" tvg-chno="1440", NICKELODEON CLASSIC
 http://tecnotv.club/28ene/phpcode/plutotv.php?c=5ddd7c348520b40009c347e2&token=tecnotokenplustv&f=.m3u8
 
-#EXTINF:-1   group-title="TV PREMIUM", TNT Novelas
+#EXTINF:-1   group-title="TV PREMIUM", TNT NOVELAS
 http://tecnotv.club/28ene/phpcode/android4.php?c=a0m2&token=tecnotokenplustv
 
-#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM", Universal
+#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",UNIVERSAL
 http://tecnotv.club/28ene/phpcode/android3.php?c=a0ih&token=tecnotokenplustv
 
