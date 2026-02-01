@@ -21,10 +21,10 @@ http://tecnotv.club/28ene/phpcode/ssiptv.php?c=ch5&token=tecnotokenplustv&f=.m3u
 #EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",NAT GEO 2
 http://tecnotv.club/28ene/phpcode/android3.php?c=a0kk&token=tecnotokenplustv
 
-#EXTINF:-1 tvg-logo="https://imgur.com/yk4CGuv.png" group-title="CINE Y SERIES",STAR CHANNEL
+#EXTINF:-1 tvg-logo="https://imgur.com/yk4CGuv.png" group-title="CINE Y SERIES",STAR CHANNEL 1
 http://tecnotv.club/28ene/phpcode/ssiptv.php?c=ch21&token=tecnotokenplustv&f=.m3u8
 
-#EXTINF:-1   group-title="TV PREMIUM",FOX CHANNEL
+#EXTINF:-1   group-title="TV PREMIUM",START CHANNEL 2
 http://tecnotv.club/28ene/phpcode/android4.php?c=a08v&token=tecnotokenplustv
 
 #EXTINF:-1 tvg-logo="https://imgur.com/WLf6FMA.png" group-title="CINE Y SERIES",UNIVERSAL 1
@@ -66,9 +66,6 @@ http://tecnotv.club/28ene/phpcode/ssiptv.php?c=ch3&token=tecnotokenplustv&f=.m3u
 #EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",ADULT SWIM
 http://tecnotv.club/28ene/phpcode/android3.php?c=a051&token=tecnotokenplustv
 
-#EXTINF:-1 group-title="TV PREMIUM",LIFETIME
-http://tecnotv.club/28ene/phpcode/lista1.php?c=a011&token=tecnotokenplustv&f=.m3u8
-
 #EXTINF:-1   group-title="TV PREMIUM",TNT NOVELAS
 http://tecnotv.club/28ene/phpcode/android4.php?c=a0m2&token=tecnotokenplustv
 
@@ -78,8 +75,9 @@ http://tecnotv.club/28ene/phpcode/ssiptv.php?c=ch12&token=tecnotokenplustv&f=.m3
 #EXTINF:-1   group-title="TV PREMIUM",DREAMWORKS
 http://tecnotv.club/28ene/phpcode/android4.php?c=a0no&token=tecnotokenplustv
 
+#EXTINF:-1 tvg-id="5ddd7c348520b40009c347e2" tvg-name="Nickelodeon Clásico" tvg-logo="https://images.pluto.tv/channels/5ddd7c348520b40009c347e2/colorLogoPNG.png" group-title="Kids" tvg-chno="1440",NICKELODEON CLASSIC
+http://tecnotv.club/28ene/phpcode/plutotv.php?c=5ddd7c348520b40009c347e2&token=tecnotokenplustv&f=.m3u8
+
 #EXTINF:-1 tvg-logo="https://imgur.com/8eaNXsD.png" group-title="CINE Y SERIES",CARTOONITO
 http://tecnotv.club/28ene/phpcode/ssiptv.php?c=ch1&token=tecnotokenplustv&f=.m3u8
 
-#EXTINF:-1 tvg-id="5ddd7c348520b40009c347e2" tvg-name="Nickelodeon Clásico" tvg-logo="https://images.pluto.tv/channels/5ddd7c348520b40009c347e2/colorLogoPNG.png" group-title="Kids" tvg-chno="1440",NICKELODEON CLASSIC
-http://tecnotv.club/28ene/phpcode/plutotv.php?c=5ddd7c348520b40009c347e2&token=tecnotokenplustv&f=.m3u8
