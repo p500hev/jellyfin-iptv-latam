@@ -1,13 +1,13 @@
 #EXTM3U
 
 #EXTINF:-1 tvg-logo="https://imgur.com/shx9p2d.png" group-title="CULTURAL",DISCOVERY CHANNEL
-http://tecnotv.club/28ene/phpcode/ssiptv.php?c=ch15&token=tecnotokenplustv&f=.m3u8
+http://tecnotv.club/feb03/phpcode/ssiptv.php?c=ch15&token=tecnotokenplustv&f=.m3u8
 
 #EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",DISCOVERY CHANNEL 2
-http://tecnotv.club/28ene/phpcode/android3.php?c=a0kn&token=tecnotokenplustv
+http://tecnotv.club/feb03/phpcode/android3.php?c=a0kn&token=tecnotokenplustv
 
 #EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",DISCOVERY ID
-http://tecnotv.club/28ene/phpcode/android3.php?c=a0ks&token=tecnotokenplustv
+http://tecnotv.club/feb03/phpcode/android3.php?c=a0ks&token=tecnotokenplustv
 
 #EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",DISCOVERY WORLD
 http://tecnotv.club/28ene/phpcode/android3.php?c=a0kp&token=tecnotokenplustv
@@ -70,7 +70,7 @@ http://tecnotv.club/28ene/phpcode/android3.php?c=a051&token=tecnotokenplustv
 http://tecnotv.club/28ene/phpcode/android4.php?c=a0m2&token=tecnotokenplustv
 
 #EXTINF:-1 tvg-logo="https://imgur.com/WUO8lA7.png" group-title="INFANTIL",CARTOON NETWORK
-http://tecnotv.club/28ene/phpcode/ssiptv.php?c=ch12&token=tecnotokenplustv&f=.m3u8
+http://tecnotv.club/feb03/phpcode/ssiptv.php?c=ch12&token=tecnotokenplustv&f=.m3u8
 
 #EXTINF:-1   group-title="TV PREMIUM",DREAMWORKS
 http://tecnotv.club/28ene/phpcode/android4.php?c=a0no&token=tecnotokenplustv
