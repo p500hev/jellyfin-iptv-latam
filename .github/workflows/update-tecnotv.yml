@@ -1,0 +1,136 @@
+name: Actualizar TecnoTV Code
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Buscar nuevo código y actualizar Latino3.m3u
+        id: update
+        run: |
+          python << 'PYEOF'
+          import re
+          import requests
+          from datetime import datetime
+          import os
+
+          URL_PAGINA = "https://spinoff.link/listas-iptv-actualizadas-2025/"
+          PATRON = r'http://tecnotv\.club/([a-z0-9]+)/lista2\.m3u'
+          ARCHIVO_M3U = "Latino3.m3u"
+          ARCHIVO_VERSION = "ultima_version.txt"
+
+          def obtener_codigo_actual():
+              if os.path.exists(ARCHIVO_VERSION):
+                  with open(ARCHIVO_VERSION, 'r', encoding='utf-8') as f:
+                      return f.read().strip()
+              return "06fb"
+
+          def obtener_nuevo_codigo():
+              try:
+                  headers = {'User-Agent': 'Mozilla/5.0'}
+                  response = requests.get(URL_PAGINA, headers=headers, timeout=15)
+                  response.raise_for_status()
+                  
+                  match = re.search(PATRON, response.text)
+                  if match:
+                      return match.group(1)
+                  else:
+                      print("❌ No se encontró el patrón en la página")
+                      return None
+              except Exception as e:
+                  print(f"❌ Error al obtener la página: {e}")
+                  return None
+
+          def actualizar_archivo_m3u(codigo_viejo, codigo_nuevo):
+              if not os.path.exists(ARCHIVO_M3U):
+                  print(f"❌ Archivo {ARCHIVO_M3U} no encontrado")
+                  return False, 0
+
+              with open(ARCHIVO_M3U, 'r', encoding='utf-8') as f:
+                  contenido = f.read()
+
+              url_vieja = f'http://tecnotv.club/{codigo_viejo}/'
+              url_nueva = f'http://tecnotv.club/{codigo_nuevo}/'
+              
+              conteo = contenido.count(url_vieja)
+              
+              if conteo == 0:
+                  print(f"⚠️ No se encontraron URLs con el código '{codigo_viejo}'")
+                  return False, 0
+
+              contenido_nuevo = contenido.replace(url_vieja, url_nueva)
+
+              with open(ARCHIVO_M3U, 'w', encoding='utf-8') as f:
+                  f.write(contenido_nuevo)
+
+              with open(ARCHIVO_VERSION, 'w', encoding='utf-8') as f:
+                  f.write(codigo_nuevo)
+
+              print(f"✅ Actualizado: {conteo} URLs reemplazadas")
+              print(f"   {url_vieja} → {url_nueva}")
+              return True, conteo
+
+          print(f"🕐 Verificación iniciada: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+
+          codigo_actual = obtener_codigo_actual()
+          print(f"🔍 Código actual guardado: {codigo_actual}")
+
+          codigo_nuevo = obtener_nuevo_codigo()
+          if not codigo_nuevo:
+              print("⚠️ No se pudo obtener el nuevo código. Abortando.")
+              exit(0)
+
+          print(f"🆕 Nuevo código detectado: {codigo_nuevo}")
+
+          if codigo_actual == codigo_nuevo:
+              print("✅ El código no ha cambiado. No se requiere actualización.")
+              exit(0)
+
+          print(f"🔄 ¡Cambio detectado! Actualizando...")
+          actualizado, canales = actualizar_archivo_m3u(codigo_actual, codigo_nuevo)
+
+          if actualizado:
+              with open(os.environ.get('GITHUB_OUTPUT', '/dev/null'), 'a') as gh_out:
+                  gh_out.write(f"actualizado=true\n")
+                  gh_out.write(f"canales={canales}\n")
+                  gh_out.write(f"codigo_viejo={codigo_actual}\n")
+                  gh_out.write(f"codigo_nuevo={codigo_nuevo}\n")
+              
+              print(f"✅ Archivo {ARCHIVO_M3U} actualizado correctamente")
+          else:
+              print("⚠️ No se realizaron cambios en el archivo")
+          PYEOF
+
+      - name: Commit y push si hay cambios
+        if: steps.update.outputs.actualizado == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add Latino3.m3u ultima_version.txt
+          git commit -m "🔄 TecnoTV: ${{ steps.update.outputs.codigo_viejo }} → ${{ steps.update.outputs.codigo_nuevo }} | ${{ steps.update.outputs.canales }} canales actualizados" \
+            -m "Fecha: $(date '+%Y-%m-%d %H:%M:%S')"
+          
+          git push
+
+      - name: Resumen
+        run: |
+          echo "✅ Proceso completado"
+          echo "Código anterior: ${{ steps.update.outputs.codigo_viejo }}"
+          echo "Código nuevo: ${{ steps.update.outputs.codigo_nuevo }}"
+          echo "Canales actualizados: ${{ steps.update.outputs.canales }}"
