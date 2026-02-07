@@ -123,13 +123,19 @@ jobs:
       - name: Commit y push si hay cambios
         if: steps.update.outputs.actualizado == 'true'
         run: |
+          # Configura el usuario de Git
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
+          # 🔑 FIX: Configura el remote URL con el token (esto resuelve el error 403)
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          
+          # Agrega los cambios y commit
           git add Latino3.m3u ultima_version.txt
           git commit -m "🔄 TecnoTV: ${{ steps.update.outputs.codigo_viejo }} → ${{ steps.update.outputs.codigo_nuevo }} | ${{ steps.update.outputs.canales }} canales actualizados" \
             -m "Fecha: $(date '+%Y-%m-%d %H:%M:%S')"
           
+          # Hace el push
           git push
 
       - name: Resumen
