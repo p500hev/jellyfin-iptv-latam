@@ -1,0 +1,82 @@
+#EXTM3U
+
+#EXTINF:-1 tvg-logo="https://imgur.com/shx9p2d.png" group-title="CULTURAL",DISCOVERY CHANNEL
+http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch15&token=tecnotokenplustv&f=.m3u8
+
+#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",DISCOVERY CHANNEL 2
+http://tecnotv.club/06fb/phpcode/android3.php?c=a0kn&token=tecnotokenplustv
+
+#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",DISCOVERY ID
+http://tecnotv.club/06fb/phpcode/android3.php?c=a0ks&token=tecnotokenplustv
+
+#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",DISCOVERY WORLD
+http://tecnotv.club/06fb/phpcode/android3.php?c=a0kp&token=tecnotokenplustv
+
+#EXTINF:-1 tvg-logo="https://imgur.com/3i4z4kK.png" group-title="CULTURAL",HISTORY CHANNEL
+http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch7&token=tecnotokenplustv&f=.m3u8
+
+#EXTINF:-1 tvg-logo="https://imgur.com/wSBVHOB.png" group-title="CULTURAL",NAT GEO 1
+http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch5&token=tecnotokenplustv&f=.m3u8
+
+#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",NAT GEO 2
+http://tecnotv.club/06fb/phpcode/android3.php?c=a0kk&token=tecnotokenplustv
+
+#EXTINF:-1 tvg-logo="https://imgur.com/yk4CGuv.png" group-title="CINE Y SERIES",STAR CHANNEL 1
+http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch21&token=tecnotokenplustv&f=.m3u8
+
+#EXTINF:-1   group-title="TV PREMIUM",START CHANNEL 2
+http://tecnotv.club/06fb/phpcode/android4.php?c=a08v&token=tecnotokenplustv
+
+#EXTINF:-1 tvg-logo="https://imgur.com/WLf6FMA.png" group-title="CINE Y SERIES",UNIVERSAL 1
+http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch10&token=tecnotokenplustv&f=.m3u8
+
+#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",UNIVERSAL 2
+http://tecnotv.club/06fb/phpcode/android3.php?c=a0ih&token=tecnotokenplustv
+
+#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",UNIVERSAL CINEMA
+http://tecnotv.club/06fb/phpcode/android3.php?c=a0kt&token=tecnotokenplustv
+
+#EXTINF:-1   group-title="TV PREMIUM",STUDIO UNIVERSAL
+http://tecnotv.club/06fb/phpcode/android4.php?c=a0bh&token=tecnotokenplustv
+
+#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",SONY MOVIES
+http://tecnotv.club/06fb/phpcode/android3.php?c=a03s&token=tecnotokenplustv
+
+#EXTINF:-1 tvg-logo="https://imgur.com/ZBhSpry.png" group-title="CINE Y SERIES",CINEMAX 1
+http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch19&token=tecnotokenplustv&f=.m3u8
+
+#EXTINF:-1 group-title="TV PREMIUM",CINEMAX 2
+http://tecnotv.club/06fb/phpcode/lista1.php?c=a05b&token=tecnotokenplustv&f=.m3u8
+
+#EXTINF:-1 tvg-logo="https://imgur.com/X1aVw04.png" group-title="CINE Y SERIES",BOX CINEMA
+http://tecnotv.club/06fb/phpcode/distro.php?c=box-cinema
+
+#EXTINF:-1 tvg-logo="https://imgur.com/Gyvr277.png" group-title="CINE Y SERIES",HBO FAMILY
+http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch22&token=tecnotokenplustv&f=.m3u8
+
+#EXTINF:-1 tvg-logo="https://imgur.com/JEIiU1Z.png" group-title="CINE Y SERIES",HBO 2
+http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch20&token=tecnotokenplustv&f=.m3u8
+
+#EXTINF:-1 tvg-logo="https://imgur.com/6WiM1el.png" group-title="ENTRETENIMIENTO",H&H
+http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch23&token=tecnotokenplustv&f=.m3u8
+
+#EXTINF:-1 tvg-logo="https://imgur.com/z895u04.png" group-title="CINE Y SERIES",A&E
+http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch3&token=tecnotokenplustv&f=.m3u8
+
+#EXTINF:-1 group-title="-" tvg-shift="-6"  group-title="TV PREMIUM",ADULT SWIM
+http://tecnotv.club/06fb/phpcode/android3.php?c=a051&token=tecnotokenplustv
+
+#EXTINF:-1   group-title="TV PREMIUM",TNT NOVELAS
+http://tecnotv.club/06fb/phpcode/android4.php?c=a0m2&token=tecnotokenplustv
+
+#EXTINF:-1 tvg-logo="https://imgur.com/WUO8lA7.png" group-title="INFANTIL",CARTOON NETWORK
+http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch12&token=tecnotokenplustv&f=.m3u8
+
+#EXTINF:-1   group-title="TV PREMIUM",DREAMWORKS
+http://tecnotv.club/06fb/phpcode/android4.php?c=a0no&token=tecnotokenplustv
+
+#EXTINF:-1 tvg-id="5ddd7c348520b40009c347e2" tvg-name="Nickelodeon Clásico" tvg-logo="https://images.pluto.tv/channels/5ddd7c348520b40009c347e2/colorLogoPNG.png" group-title="Kids" tvg-chno="1440",NICKELODEON CLASSIC
+http://tecnotv.club/06fb/phpcode/plutotv.php?c=5ddd7c348520b40009c347e2&token=tecnotokenplustv&f=.m3u8
+
+#EXTINF:-1 tvg-logo="https://imgur.com/8eaNXsD.png" group-title="CINE Y SERIES",CARTOONITO
+http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch1&token=tecnotokenplustv&f=.m3u8
