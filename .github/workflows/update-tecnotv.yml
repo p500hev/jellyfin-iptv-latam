@@ -20,6 +20,10 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install dependencies
+        run: |
+          pip install requests
+
       - name: Buscar nuevo código y actualizar Latino3.m3u
         id: update
         run: |
