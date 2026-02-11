@@ -2,85 +2,85 @@
 
 # --- CATEGORIA: DOCUMENTALES ---
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/4e/Discovery_Channel.png" group-title="DOCUMENTALES",DISCOVERY CHANNEL
-http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch15&token=tecnotokenplustv&f=.m3u8
+http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch15&token=tecnotokenplustv&f=.m3u8
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/4e/Discovery_Channel.png" group-title="DOCUMENTALES",DISCOVERY CHANNEL 2
-http://tecnotv.club/06fb/phpcode/android3.php?c=a0kn&token=tecnotokenplustv
+http://tecnotv.club/f1002/phpcode/android3.php?c=a0kn&token=tecnotokenplustv
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Investigation_Discovery_Logo_2018.svg/960px-Investigation_Discovery_Logo_2018.svg.png" group-title="DOCUMENTALES",DISCOVERY ID
-http://tecnotv.club/06fb/phpcode/android3.php?c=a0ks&token=tecnotokenplustv
+http://tecnotv.club/f1002/phpcode/android3.php?c=a0ks&token=tecnotokenplustv
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/b/bb/Discovery_Global_Logo_2026.png" group-title="DOCUMENTALES",DISCOVERY WORLD
-http://tecnotv.club/06fb/phpcode/android3.php?c=a0kp&token=tecnotokenplustv
+http://tecnotv.club/f1002/phpcode/android3.php?c=a0kp&token=tecnotokenplustv
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/History_Logo.svg/3840px-History_Logo.svg.png" group-title="DOCUMENTALES",HISTORY CHANNEL
-http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch7&token=tecnotokenplustv&f=.m3u8
+http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch7&token=tecnotokenplustv&f=.m3u8
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/National-Geographic-Logo.svg/1280px-National-Geographic-Logo.svg.png" group-title="DOCUMENTALES",NAT GEO 1
-http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch5&token=tecnotokenplustv&f=.m3u8
+http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch5&token=tecnotokenplustv&f=.m3u8
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/National-Geographic-Logo.svg/1280px-National-Geographic-Logo.svg.png" group-title="DOCUMENTALES",NAT GEO 2
-http://tecnotv.club/06fb/phpcode/android3.php?c=a0kk&token=tecnotokenplustv
+http://tecnotv.club/f1002/phpcode/android3.php?c=a0kk&token=tecnotokenplustv
 
 # --- CATEGORIA: CINE Y SERIES ---
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Star_Channel_2023.svg/1280px-Star_Channel_2023.svg.png" group-title="CINE Y SERIES",STAR CHANNEL 1
-http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch21&token=tecnotokenplustv&f=.m3u8
+http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch21&token=tecnotokenplustv&f=.m3u8
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Star_Channel_2023.svg/1280px-Star_Channel_2023.svg.png" group-title="CINE Y SERIES",START CHANNEL 2
-http://tecnotv.club/06fb/phpcode/android4.php?c=a08v&token=tecnotokenplustv
+http://tecnotv.club/f1002/phpcode/android4.php?c=a08v&token=tecnotokenplustv
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Logo_Universal_Channel_HD.svg/1280px-Logo_Universal_Channel_HD.svg.png" group-title="CINE Y SERIES",UNIVERSAL 1
-http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch10&token=tecnotokenplustv&f=.m3u8
+http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch10&token=tecnotokenplustv&f=.m3u8
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Logo_Universal_Channel_HD.svg/1280px-Logo_Universal_Channel_HD.svg.png" group-title="CINE Y SERIES",UNIVERSAL 2
-http://tecnotv.club/06fb/phpcode/android3.php?c=a0ih&token=tecnotokenplustv
+http://tecnotv.club/f1002/phpcode/android3.php?c=a0ih&token=tecnotokenplustv
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Logo_Universal_Channel_HD.svg/1280px-Logo_Universal_Channel_HD.svg.png" group-title="CINE Y SERIES",UNIVERSAL CINEMA
-http://tecnotv.club/06fb/phpcode/android3.php?c=a0kt&token=tecnotokenplustv
+http://tecnotv.club/f1002/phpcode/android3.php?c=a0kt&token=tecnotokenplustv
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Logo_Universal_Channel_HD.svg/1280px-Logo_Universal_Channel_HD.svg.png" group-title="CINE Y SERIES",STUDIO UNIVERSAL
-http://tecnotv.club/06fb/phpcode/android4.php?c=a0bh&token=tecnotokenplustv
+http://tecnotv.club/f1002/phpcode/android4.php?c=a0bh&token=tecnotokenplustv
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Sony_Channel_Logo_2019.svg/1280px-Sony_Channel_Logo_2019.svg.png" group-title="CINE Y SERIES",SONY MOVIES
-http://tecnotv.club/06fb/phpcode/android3.php?c=a03s&token=tecnotokenplustv
+http://tecnotv.club/f1002/phpcode/android3.php?c=a03s&token=tecnotokenplustv
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/51/Cinemax_LA_logo.png" group-title="CINE Y SERIES",CINEMAX 1
-http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch19&token=tecnotokenplustv&f=.m3u8
+http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch19&token=tecnotokenplustv&f=.m3u8
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/51/Cinemax_LA_logo.png" group-title="CINE Y SERIES",CINEMAX 2
-http://tecnotv.club/06fb/phpcode/lista1.php?c=a05b&token=tecnotokenplustv&f=.m3u8
+http://tecnotv.club/f1002/phpcode/lista1.php?c=a05b&token=tecnotokenplustv&f=.m3u8
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Cinemaxx_svg.svg/1280px-Cinemaxx_svg.svg.png" group-title="CINE Y SERIES",BOX CINEMA
-http://tecnotv.club/06fb/phpcode/distro.php?c=box-cinema
+http://tecnotv.club/f1002/phpcode/distro.php?c=box-cinema
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/3a/HBO_Family_logo.png" group-title="CINE Y SERIES",HBO FAMILY
-http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch22&token=tecnotokenplustv&f=.m3u8
+http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch22&token=tecnotokenplustv&f=.m3u8
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/3b/HBO2_logo.png" group-title="CINE Y SERIES",HBO 2
-http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch20&token=tecnotokenplustv&f=.m3u8
+http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch20&token=tecnotokenplustv&f=.m3u8
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/A%26E_Network_logo.svg/1280px-A%26E_Network_logo.svg.png" group-title="CINE Y SERIES",A E
-http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch3&token=tecnotokenplustv&f=.m3u8
+http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch3&token=tecnotokenplustv&f=.m3u8
 
 # --- CATEGORIA: ENTRETENIMIENTO ---
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/96/Casi_Discovery_health.png" group-title="ENTRETENIMIENTO",H H
-http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch23&token=tecnotokenplustv&f=.m3u8
+http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch23&token=tecnotokenplustv&f=.m3u8
 
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Adult_Swim_logo.svg/512px-Adult_Swim_logo.svg.png" group-title="ENTRETENIMIENTO",ADULT SWIM
-http://tecnotv.club/06fb/phpcode/android3.php?c=a051&token=tecnotokenplustv
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Adult_Swim_%28Symbol%29.svg/1280px-Adult_Swim_%28Symbol%29.svg.png" group-title="ENTRETENIMIENTO",ADULT SWIM
+http://tecnotv.club/f1002/phpcode/android3.php?c=a051&token=tecnotokenplustv
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Logo_TNT_Novelas.png/960px-Logo_TNT_Novelas.png" group-title="ENTRETENIMIENTO",TNT NOVELAS
-http://tecnotv.club/06fb/phpcode/android4.php?c=a0m2&token=tecnotokenplustv
+http://tecnotv.club/f1002/phpcode/android4.php?c=a0m2&token=tecnotokenplustv
 
 # --- CATEGORIA: INFANTIL ---
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/41/Cartoon_Network_logo.png" group-title="INFANTIL",CARTOON NETWORK
-http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch12&token=tecnotokenplustv&f=.m3u8
+http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch12&token=tecnotokenplustv&f=.m3u8
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/DreamWorks_Television_logo.svg/1280px-DreamWorks_Television_logo.svg.png" group-title="INFANTIL",DREAMWORKS
-http://tecnotv.club/06fb/phpcode/android4.php?c=a0no&token=tecnotokenplustv
+http://tecnotv.club/f1002/phpcode/android4.php?c=a0no&token=tecnotokenplustv
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/c/c0/Nickelodeon.png" group-title="INFANTIL",NICKELODEON CLASSIC
-http://tecnotv.club/06fb/phpcode/plutotv.php?c=5ddd7c348520b40009c347e2&token=tecnotokenplustv&f=.m3u8
+http://tecnotv.club/f1002/phpcode/plutotv.php?c=5ddd7c348520b40009c347e2&token=tecnotokenplustv&f=.m3u8
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Cartoonito_-_Logo_2021.svg/1280px-Cartoonito_-_Logo_2021.svg.png" group-title="INFANTIL",CARTOONITO
-http://tecnotv.club/06fb/phpcode/ssiptv.php?c=ch1&token=tecnotokenplustv&f=.m3u8
+http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch1&token=tecnotokenplustv&f=.m3u8
