@@ -1,5 +1,9 @@
 #EXTM3U
 
+# --- CATEGORIA: DISCOVERY ---
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/b/bb/Discovery_Global_Logo_2026.png" group-title="DISCOVERY",DISCOVERY CHANNEL HD MX
+http://tecnotv.club/f1002/phpcode/geomex.php?c=a0kn&token=tecnotokenplustv&f=.m3u8
+
 # --- CATEGORIA: DOCUMENTALES ---
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/4e/Discovery_Channel.png" group-title="DOCUMENTALES",DISCOVERY CHANNEL
 http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch15&token=tecnotokenplustv&f=.m3u8
@@ -26,7 +30,7 @@ http://tecnotv.club/f1002/phpcode/android3.php?c=a0kk&token=tecnotokenplustv
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Star_Channel_2023.svg/1280px-Star_Channel_2023.svg.png" group-title="CINE Y SERIES",STAR CHANNEL 1
 http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch21&token=tecnotokenplustv&f=.m3u8
 
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Star_Channel_2023.svg/1280px-Star_Channel_2023.svg.png" group-title="CINE Y SERIES",START CHANNEL 2
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Star_Channel_2023.svg/1280px-Star_Channel_2023.svg.png" group-title="CINE Y SERIES",STAR CHANNEL 2
 http://tecnotv.club/f1002/phpcode/android4.php?c=a08v&token=tecnotokenplustv
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Logo_Universal_Channel_HD.svg/1280px-Logo_Universal_Channel_HD.svg.png" group-title="CINE Y SERIES",UNIVERSAL 1
@@ -59,11 +63,11 @@ http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch22&token=tecnotokenplustv&f=.m3
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/3b/HBO2_logo.png" group-title="CINE Y SERIES",HBO 2
 http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch20&token=tecnotokenplustv&f=.m3u8
 
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/A%26E_Network_logo.svg/1280px-A%26E_Network_logo.svg.png" group-title="CINE Y SERIES",A E
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/A%26E_Network_logo.svg/1280px-A%26E_Network_logo.svg.png" group-title="CINE Y SERIES",A&E
 http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch3&token=tecnotokenplustv&f=.m3u8
 
 # --- CATEGORIA: ENTRETENIMIENTO ---
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/96/Casi_Discovery_health.png" group-title="ENTRETENIMIENTO",H H
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/96/Casi_Discovery_health.png" group-title="ENTRETENIMIENTO",H&H
 http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch23&token=tecnotokenplustv&f=.m3u8
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Adult_Swim_%28Symbol%29.svg/1280px-Adult_Swim_%28Symbol%29.svg.png" group-title="ENTRETENIMIENTO",ADULT SWIM
@@ -84,3 +88,34 @@ http://tecnotv.club/f1002/phpcode/plutotv.php?c=5ddd7c348520b40009c347e2&token=t
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Cartoonito_-_Logo_2021.svg/1280px-Cartoonito_-_Logo_2021.svg.png" group-title="INFANTIL",CARTOONITO
 http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch1&token=tecnotokenplustv&f=.m3u8
+
+# --- CATEGORIA: TV PREMIUM ---
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FX_logo_2013.svg/1280px-FX_logo_2013.svg.png" group-title="TV PREMIUM",FX
+http://tecnotv.club/f1002/phpcode/lista2.php?c=a08x&f=.m3u8&token=tecnotokenplustv
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/96/Casi_Discovery_health.png" group-title="TV PREMIUM",H&H
+http://tecnotv.club/f1002/phpcode/lista2.php?c=a0bw&f=.m3u8&token=tecnotokenplustv
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/HBO_logo.svg/1280px-HBO_logo.svg.png" group-title="TV PREMIUM",HBO+
+http://tecnotv.club/f1002/phpcode/lista2.php?c=a0cv&f=.m3u8&token=tecnotokenplustv
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Comedy_Central_logo_2019.svg/1280px-Comedy_Central_logo_2019.svg.png" group-title="TV PREMIUM",COMEDY CENTRAL
+http://tecnotv.club/f1002/phpcode/lista2.php?c=a0b3&f=.m3u8&token=tecnotokenplustv
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Edge_Sport_logo.svg/1280px-Edge_Sport_logo.svg.png" group-title="TV PREMIUM",EDGE
+http://tecnotv.club/f1002/phpcode/lista2.php?c=a0nh&f=.m3u8&token=tecnotokenplustv
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/USA_Network_logo_2022.svg/1280px-USA_Network_logo_2022.svg.png" group-title="TV PREMIUM",USA
+http://tecnotv.club/f1002/phpcode/lista2.php?c=a0b1&f=.m3u8&token=tecnotokenplustv
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/WarnerTV_logo_2022.svg/1280px-WarnerTV_logo_2022.svg.png" group-title="TV PREMIUM",WARNER
+http://tecnotv.club/f1002/phpcode/lista2.php?c=a0cf&f=.m3u8&token=tecnotokenplustv
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/41/Cartoon_Network_logo.png" tvg-shift="-6" group-title="TV PREMIUM",CARTOON NETWORK HD
+http://tecnotv.club/f1002/phpcode/geomex.php?c=a0l0&token=tecnotokenplustv&f=.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/AMC_logo_2021.svg/1280px-AMC_logo_2021.svg.png" tvg-shift="-6" group-title="TV PREMIUM",AMC HD
+http://tecnotv.club/f1002/phpcode/geomex.php?c=a0gu&token=tecnotokenplustv&f=.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/E%21_Logo_2012.svg/1280px-E%21_Logo_2012.svg.png" tvg-shift="-6" group-title="TV PREMIUM",E! ENTERTAINMENT HD
+http://tecnotv.club/f1002/phpcode/geomex.php?c=a0gr&token=tecnotokenplustv&f=.m3u8
