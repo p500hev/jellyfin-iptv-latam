@@ -48,6 +48,9 @@ http://tecnotv.club/f1002/phpcode/android4.php?c=a0bh&token=tecnotokenplustv
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Sony_Channel_Logo_2019.svg/1280px-Sony_Channel_Logo_2019.svg.png" group-title="CINE Y SERIES",SONY MOVIES
 http://tecnotv.club/f1002/phpcode/android3.php?c=a03s&token=tecnotokenplustv
 
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Sony_Channel_Logo_2019.svg/1280px-Sony_Channel_Logo_2019.svg.png" group-title="CINE Y SERIES",SONY HD
+http://tecnotv.club/f1002/phpcode/geomex.php?c=a0hp&token=tecnotokenplustv&f=.m3u8
+
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/51/Cinemax_LA_logo.png" group-title="CINE Y SERIES",CINEMAX 1
 http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch19&token=tecnotokenplustv&f=.m3u8
 
