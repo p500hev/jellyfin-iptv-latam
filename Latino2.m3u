@@ -111,7 +111,7 @@ http://tecnotv.club/f1002/phpcode/lista2.php?c=a0nh&f=.m3u8&token=tecnotokenplus
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/USA_Network_logo_2022.svg/1280px-USA_Network_logo_2022.svg.png" group-title="TV PREMIUM",USA
 http://tecnotv.club/f1002/phpcode/lista2.php?c=a0b1&f=.m3u8&token=tecnotokenplustv
 
-#EXTINF:-1 tvg-id="WarnerChannel.ar" tvg-name="AR - Warner Channel" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/WarnerTV_logo_2022.svg/1280px-WarnerTV_logo_2022.svg.png" group-title="TV PREMIUM",WARNER
+#EXTINF:-1 tvg-id="WarnerChannel.mx" tvg-name="MX - Warner Channel" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/WarnerTV_logo_2022.svg/1280px-WarnerTV_logo_2022.svg.png" group-title="TV PREMIUM",WARNER
 http://tecnotv.club/f1002/phpcode/lista2.php?c=a0cf&f=.m3u8&token=tecnotokenplustv
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/41/Cartoon_Network_logo.png" tvg-shift="-6" group-title="TV PREMIUM",CARTOON NETWORK HD
