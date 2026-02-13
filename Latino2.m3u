@@ -51,7 +51,7 @@ http://tecnotv.club/f1002/phpcode/android3.php?c=a03s&token=tecnotokenplustv
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Sony_Channel_Logo_2019.svg/1280px-Sony_Channel_Logo_2019.svg.png" group-title="CINE Y SERIES",SONY HD
 http://tecnotv.club/f1002/phpcode/geomex.php?c=a0hp&token=tecnotokenplustv&f=.m3u8
 
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/51/Cinemax_LA_logo.png" group-title="CINE Y SERIES",CINEMAX 1
+#EXTINF:-1 tvg-id="Cinemax.cl" tvg-name="CL - Cinemax" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/51/Cinemax_LA_logo.png" group-title="CINE Y SERIES",CINEMAX 1
 http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch19&token=tecnotokenplustv&f=.m3u8
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/51/Cinemax_LA_logo.png" group-title="CINE Y SERIES",CINEMAX 2
@@ -80,7 +80,7 @@ http://tecnotv.club/f1002/phpcode/android3.php?c=a051&token=tecnotokenplustv
 http://tecnotv.club/f1002/phpcode/android4.php?c=a0m2&token=tecnotokenplustv
 
 # --- CATEGORIA: INFANTIL ---
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/41/Cartoon_Network_logo.png" group-title="INFANTIL",CARTOON NETWORK
+#EXTINF:-1 tvg-id="CartoonNetwork.cl" tvg-name="CL - Cartoon Network" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/41/Cartoon_Network_logo.png" group-title="INFANTIL",CARTOON NETWORK
 http://tecnotv.club/f1002/phpcode/ssiptv.php?c=ch12&token=tecnotokenplustv&f=.m3u8
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/DreamWorks_Television_logo.svg/1280px-DreamWorks_Television_logo.svg.png" group-title="INFANTIL",DREAMWORKS
@@ -114,7 +114,7 @@ http://tecnotv.club/f1002/phpcode/lista2.php?c=a0b1&f=.m3u8&token=tecnotokenplus
 #EXTINF:-1 tvg-id="WarnerChannel.mx" tvg-name="MX - Warner Channel" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/WarnerTV_logo_2022.svg/1280px-WarnerTV_logo_2022.svg.png" group-title="TV PREMIUM",WARNER
 http://tecnotv.club/f1002/phpcode/lista2.php?c=a0cf&f=.m3u8&token=tecnotokenplustv
 
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/41/Cartoon_Network_logo.png" tvg-shift="-6" group-title="TV PREMIUM",CARTOON NETWORK HD
+#EXTINF:-1 tvg-id="CartoonNetwork.cl" tvg-name="CL - Cartoon Network" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/41/Cartoon_Network_logo.png" tvg-shift="-6" group-title="TV PREMIUM",CARTOON NETWORK HD
 http://tecnotv.club/f1002/phpcode/geomex.php?c=a0l0&token=tecnotokenplustv&f=.m3u8
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/AMC_logo_2021.svg/1280px-AMC_logo_2021.svg.png" tvg-shift="-6" group-title="TV PREMIUM",AMC HD
