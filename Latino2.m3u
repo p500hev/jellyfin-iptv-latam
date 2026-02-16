@@ -3,31 +3,31 @@
 #EXTINF:-1 tvg-id="DiscoveryChannel.mx" tvg-name="MX - Discovery Channel" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/b/bb/Discovery_Global_Logo_2026.png" group-title="DISCOVERY",DISCOVERY CHANNEL
 http://38.49.128.38:8000/play/a0ep/index.m3u8
 # --- CATEGORIA: DOCUMENTALES ---
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/History_Logo.svg/3840px-History_Logo.svg.png" group-title="DOCUMENTALES",HISTORY
+#EXTINF:-1 tvg-id="History.mx" tvg-name="MX - History" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/History_Logo.svg/3840px-History_Logo.svg.png" group-title="DOCUMENTALES",HISTORY
 http://38.49.128.38:8000/play/a0dj/index.m3u8
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/National-Geographic-Logo.svg/1280px-National-Geographic-Logo.svg.png" group-title="DOCUMENTALES",NATGEO
+#EXTINF:-1 tvg-id="NationalGeographic.mx" tvg-name="MX - National Geographic" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/National-Geographic-Logo.svg/1280px-National-Geographic-Logo.svg.png" group-title="DOCUMENTALES",NATGEO
 http://38.49.128.38:8000/play/a0cl/index.m3u8
 # --- CATEGORIA: CINE Y SERIES ---
-#EXTINF:-1 tvg-id="Cinemax.cl" tvg-name="CL - Cinemax" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/51/Cinemax_LA_logo.png" group-title="CINE Y SERIES",CINEMAX
+#EXTINF:-1 tvg-id="Cinemax.mx" tvg-name="MX - Cinemax" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/51/Cinemax_LA_logo.png" group-title="CINE Y SERIES",CINEMAX
 http://38.49.128.38:8000/play/a093/index.m3u8
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/3a/HBO_Family_logo.png" group-title="CINE Y SERIES",HBO
+#EXTINF:-1 tvg-id="HBO.mx" tvg-name="MX - HBO" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/3a/HBO_Family_logo.png" group-title="CINE Y SERIES",HBO
 http://38.49.128.38:8000/play/a0cv/index.m3u8
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/3b/HBO2_logo.png" group-title="CINE Y SERIES",HBO +
+#EXTINF:-1 tvg-id="HBOPlusMéxico.mx" tvg-name="MX - HBO Plus México" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/3b/HBO2_logo.png" group-title="CINE Y SERIES",HBO +
 http://38.49.128.38:8000/play/a0cv/index.m3u8
 # --- CATEGORIA: ENTRETENIMIENTO ---
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/96/Casi_Discovery_health.png" group-title="ENTRETENIMIENTO",H&H
+#EXTINF:-1 tvg-id="DiscoveryHome&amp;Health.mx" tvg-name="MX - Discovery Home &amp; Health" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/96/Casi_Discovery_health.png" group-title="ENTRETENIMIENTO",H&H
 http://38.49.128.38:8000/play/a0bw/index.m3u8
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Logo_TNT_Novelas.png/960px-Logo_TNT_Novelas.png" group-title="ENTRETENIMIENTO",TNT SERIES
+#EXTINF:-1 tvg-id="TNTSeries.mx" tvg-name="MX - TNT Series" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Logo_TNT_Novelas.png/960px-Logo_TNT_Novelas.png" group-title="ENTRETENIMIENTO",TNT SERIES
 http://38.49.128.38:8000/play/a0da/index.m3u8
 # --- CATEGORIA: INFANTIL ---
-#EXTINF:-1 tvg-id="CartoonNetwork.cl" tvg-name="CL - Cartoon Network" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/41/Cartoon_Network_logo.png" group-title="INFANTIL",CARTOON NETWORK
+#EXTINF:-1 tvg-id="CartoonNetwork.mx" tvg-name="MX - Cartoon Network" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/41/Cartoon_Network_logo.png" group-title="INFANTIL",CARTOON NETWORK
 http://38.49.128.38:8000/play/a0c0/index.m3u8
 # --- CATEGORIA: TV PREMIUM ---
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FX_logo_2013.svg/1280px-FX_logo_2013.svg.png" group-title="TV PREMIUM",FX
+#EXTINF:-1 tvg-id="FX.mx" tvg-name="MX - FX" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FX_logo_2013.svg/1280px-FX_logo_2013.svg.png" group-title="TV PREMIUM",FX
 http://38.49.128.38:8000/play/a08x/index.m3u8
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Edge_Sport_logo.svg/1280px-Edge_Sport_logo.svg.png" group-title="TV PREMIUM",EDGE
+#EXTINF:-1 tvg-id="GoldenEdge.mx" tvg-name="MX - Golden Edge" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Edge_Sport_logo.svg/1280px-Edge_Sport_logo.svg.png" group-title="TV PREMIUM",EDGE
 http://38.49.128.38:8000/play/a0nh/index.m3u8
 #EXTINF:-1 tvg-id="WarnerChannel.mx" tvg-name="MX - Warner Channel" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/WarnerTV_logo_2022.svg/1280px-WarnerTV_logo_2022.svg.png" group-title="TV PREMIUM",WARNER
 http://38.49.128.38:8000/play/a0cf/index.m3u8
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/AMC_logo_2021.svg/1280px-AMC_logo_2021.svg.png" tvg-shift="-6" group-title="TV PREMIUM",PARAMOUNT
+#EXTINF:-1 tvg-id="ParamountNetwork.mx" tvg-name="MX - Paramount Network" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/AMC_logo_2021.svg/1280px-AMC_logo_2021.svg.png" tvg-shift="-6" group-title="TV PREMIUM",PARAMOUNT
 http://38.49.128.38:8000/play/a0cs/index.m3u8
