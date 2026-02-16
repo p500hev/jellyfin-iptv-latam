@@ -27,5 +27,5 @@ http://38.49.128.38:8000/play/a08x/index.m3u8
 http://38.49.128.38:8000/play/a0nh/index.m3u8
 #EXTINF:-1 tvg-id="WarnerChannel.mx" tvg-name="MX - Warner Channel" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/WarnerTV_logo_2022.svg/1280px-WarnerTV_logo_2022.svg.png" group-title="TV PREMIUM",WARNER
 http://38.49.128.38:8000/play/a0cf/index.m3u8
-#EXTINF:-1 tvg-id="ParamountNetwork.mx" tvg-name="MX - Paramount Network" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Paramount_Pictures_Corporation_logo.svg/1280px-Paramount_Pictures_Corporation_logo.svg.png" tvg-shift="-6" group-title="TV PREMIUM",PARAMOUNT
-http://38.49.128.38:8000/play/a0cs/index.m3u8
+#EXTINF:-1 tvg-id="ComedyCentral.mx" tvg-name="MX - Comedy Central" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Comedy_Central_HD_Logo_2018.svg/1280px-Comedy_Central_HD_Logo_2018.svg.png" tvg-shift="-6" group-title="TV PREMIUM",COMEDY CENTRAL
+http://38.49.128.38:8000/play/a0b3/index.m3u8
