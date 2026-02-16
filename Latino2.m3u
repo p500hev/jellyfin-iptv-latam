@@ -3,15 +3,13 @@
 #EXTINF:-1 tvg-id="DiscoveryChannel.mx" tvg-name="MX - Discovery Channel" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/b/bb/Discovery_Global_Logo_2026.png" group-title="DISCOVERY",DISCOVERY CHANNEL
 http://38.49.128.38:8000/play/a0ep/index.m3u8
 # --- CATEGORIA: DOCUMENTALES ---
-#EXTINF:-1 tvg-id="History.mx" tvg-name="MX - History" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/History_Logo.svg/3840px-History_Logo.svg.png" group-title="DOCUMENTALES",HISTORY
+#EXTINF:-1 tvg-id="History2.mx" tvg-name="MX - History 2" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/History2_logo_%282022%29.svg/1280px-History2_logo_%282022%29.svg.png" group-title="DOCUMENTALES",HISTORY 2
 http://38.49.128.38:8000/play/a0dj/index.m3u8
 #EXTINF:-1 tvg-id="NationalGeographic.mx" tvg-name="MX - National Geographic" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/National-Geographic-Logo.svg/1280px-National-Geographic-Logo.svg.png" group-title="DOCUMENTALES",NATGEO
 http://38.49.128.38:8000/play/a0cl/index.m3u8
 # --- CATEGORIA: CINE Y SERIES ---
 #EXTINF:-1 tvg-id="Cinemax.mx" tvg-name="MX - Cinemax" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/51/Cinemax_LA_logo.png" group-title="CINE Y SERIES",CINEMAX
 http://38.49.128.38:8000/play/a093/index.m3u8
-#EXTINF:-1 tvg-id="HBO.mx" tvg-name="MX - HBO" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/HBO_logo.svg/1280px-HBO_logo.svg.png" group-title="CINE Y SERIES",HBO
-http://38.49.128.38:8000/play/a0cv/index.m3u8
 #EXTINF:-1 tvg-id="HBOPlusMéxico.mx" tvg-name="MX - HBO Plus México" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/c/c3/HBO_plus.png" group-title="CINE Y SERIES",HBO +
 http://38.49.128.38:8000/play/a0cv/index.m3u8
 # --- CATEGORIA: ENTRETENIMIENTO ---
