@@ -1,3 +1,3 @@
-Este es el nuevo contenido
-generado automáticamente desde mi script en WSL.
-Fecha de ejecución: 2026-07-02
+#EXTM3U
+#EXTINF:-1 tvg-id="AztecaInternacional.mx@SD",Azteca 7 (1080p)
+https://us-b4-p-e-cg11.cdn.mdstrm.com/live-stream-gdai/69b0e201a4807b7097316af8/linear/hls/pa/event/Pqw3ERh_TsKTtop8s6dxgg/stream/277e60f8-a561-4589-8633-d7b4c836b26d:ATL/master.m3u8?aid=5fea09a071a9945deebf5f7c&uid=Oo2OXCirVJYBt886vqQ1llSSz5nVtZ9G&sid=5gpMTDDqt1xV6jtx5oxcVBU6ki5OhY6s&pid=rQr3bgmfrEpR8BDcXwDooaNdBfjfBQaU&pid_dvr=bQdm1Bh77SPSmQgq3UIkoucqYl4ycsbf&ref=https%3A%2F%2Fwww.tvazteca.com%2F&without_cookies=false&listenerid=&dnt=true&access_token=g5qnNFHUAfd5DcZbOQVajrVM975EdY2VcfCts5A2XILlypwP5yA3AYktd1Muwa4yvwkAD4eVdHD&adInsertionGoogleStreamId=277e60f8-a561-4589-8633-d7b4c836b26d%3AATL&CMCD=cid%3D%2269b0e201a4807b7097316af8%22%2Cmtp%3D500%2Cot%3Dm%2Csf%3Dh%2Csid%3D%22rQr3bgmfrEpR8BDcXwDooaNdBfjfBQaU%22%2Csu&es=us-b4-p-e-cg11.cdn.mdstrm.com&ote=1783054901768&ot=W4w6Re_XDtjLwIp9XmfXFQ&proto=https&pz=us
